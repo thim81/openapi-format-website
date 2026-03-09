@@ -1,0 +1,205 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '@/components/docs/CodeBlock';
+---
+
+<DocsLayout title="Sorting" description="Sort OpenAPI fields in a defined order." currentPath="/docs/sorting">
+  <h1 class="text-3xl font-bold mb-2">Sorting</h1>
+  <p class="text-muted-foreground mb-4">
+    Sort OpenAPI fields in a defined order. Fields not specified keep their original order.
+  </p>
+  <a href="https://openapi-format-playground.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
+    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+      Try sorting in the Playground
+    </span>
+  </a>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">CLI Usage</h2>
+  <CodeBlock
+    client:idle
+    code={`# Sort with defaults\nnpx openapi-format openapi.json -o openapi-sorted.json\n\n# Sort with custom ordering\nnpx openapi-format openapi.json -o openapi-sorted.json --sortFile customSort.json\n\n# Skip sorting entirely\nnpx openapi-format openapi.json -o output.json --no-sort`}
+    title="Terminal"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Default Sort Fields</h2>
+  <p class="mb-4 text-muted-foreground">
+    The default sort order is stored in{' '}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">defaultSort.json</code>.
+    You can override it by providing a custom sort file.
+  </p>
+
+  <div class="overflow-x-auto mb-8">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2 pr-4 font-semibold">Key</th>
+          <th class="text-left py-2 pr-4 font-semibold">Ordered by</th>
+        </tr>
+      </thead>
+      <tbody class="text-muted-foreground">
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">root</td>
+          <td class="py-2 pr-4">openapi &rarr; info &rarr; servers &rarr; paths &rarr; components &rarr; tags &rarr; x-tagGroups &rarr; externalDocs</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">get / post / put / patch / delete</td>
+          <td class="py-2 pr-4">operationId &rarr; summary &rarr; description &rarr; parameters &rarr; requestBody &rarr; responses</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parameters</td>
+          <td class="py-2 pr-4">name &rarr; in &rarr; description &rarr; required &rarr; schema</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">requestBody</td>
+          <td class="py-2 pr-4">description &rarr; headers &rarr; content &rarr; links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">responses</td>
+          <td class="py-2 pr-4">description &rarr; headers &rarr; content &rarr; links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">content</td>
+          <td class="py-2 pr-4">By alphabet</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">components</td>
+          <td class="py-2 pr-4">parameters &rarr; schemas</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">schema / schemas</td>
+          <td class="py-2 pr-4">description &rarr; type &rarr; items &rarr; properties &rarr; format &rarr; example &rarr; default</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">properties</td>
+          <td class="py-2 pr-4">description &rarr; type &rarr; items &rarr; format &rarr; example &rarr; default &rarr; enum</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Custom Sort File</h2>
+  <p class="mb-4 text-muted-foreground">
+    Create a JSON or YAML file specifying your preferred field order per key:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`{
+  "root": ["openapi", "info", "servers", "paths", "components"],
+  "get": ["summary", "description", "operationId", "parameters", "responses"],
+  "schema": ["type", "description", "properties", "required"]
+}`}
+    title="customSort.json"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Sort Paths</h2>
+  <p class="mb-4 text-muted-foreground">
+    Control the order of paths in your OpenAPI document using{' '}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">sortPathsBy</code>:
+  </p>
+
+  <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2 pr-4 font-semibold">Option</th>
+          <th class="text-left py-2 pr-4 font-semibold">Description</th>
+        </tr>
+      </thead>
+      <tbody class="text-muted-foreground">
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">original</td>
+          <td class="py-2">Keep the original order (default)</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">path</td>
+          <td class="py-2">Order alphabetically by path</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">tags</td>
+          <td class="py-2">Order by the first tag of the first method</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Sort Components</h2>
+  <p class="mb-4 text-muted-foreground">
+    Sort items within the components section alphabetically:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`npx openapi-format openapi.json -o output.json --sortComponentsFile sortComponents.json`}
+    title="Terminal"
+  />
+  <CodeBlock
+    client:idle
+    code={`["schemas", "parameters", "headers", "requestBodies", "responses", "securitySchemes"]`}
+    title="sortComponents.json"
+  />
+
+  <h3 class="text-xl font-semibold mt-6 mb-3">Example</h3>
+  <div class="grid gap-4 md:grid-cols-2">
+    <CodeBlock
+      client:idle
+      code={`components:
+  schemas:
+    Order:
+      type: object
+    Customer:
+      type: object
+    Address:
+      type: object`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`components:
+  schemas:
+    Address:
+      type: object
+    Customer:
+      type: object
+    Order:
+      type: object`}
+      title="After"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Sort Component Properties</h2>
+  <p class="mb-4 text-muted-foreground">
+    Sort properties within schema components alphabetically:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`npx openapi-format openapi.json -o output.json --sortComponentsProps`}
+    title="Terminal"
+  />
+
+  <div class="grid gap-4 md:grid-cols-2">
+    <CodeBlock
+      client:idle
+      code={`schemas:
+  UserDto:
+    type: object
+    properties:
+      lastName:
+        type: string
+      firstName:
+        type: string`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`schemas:
+  UserDto:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string`}
+      title="After"
+    />
+  </div>
+</DocsLayout>

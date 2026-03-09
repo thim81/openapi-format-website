@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '@/components/landing/Header';
+import HeroAstro from '@/components/landing/Hero.astro';
+import SocialProofAstro from '@/components/landing/SocialProof.astro';
+import FeaturesAstro from '@/components/landing/Features.astro';
+import UseCasesAstro from '@/components/landing/UseCases.astro';
+import CodeExample from '@/components/landing/CodeExample';
+import QuickStart from '@/components/landing/QuickStart';
+import DocsOverviewAstro from '@/components/landing/DocsOverview.astro';
+import FooterAstro from '@/components/landing/Footer.astro';
+---
+
+<BaseLayout>
+  <div class="min-h-screen bg-background text-foreground scroll-smooth">
+    <Header client:load />
+    <HeroAstro />
+    <SocialProofAstro />
+    <FeaturesAstro />
+    <UseCasesAstro />
+    <CodeExample client:visible />
+    <QuickStart client:visible />
+    <DocsOverviewAstro />
+    <FooterAstro />
+  </div>
+</BaseLayout>

@@ -1,0 +1,380 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '@/components/docs/CodeBlock';
+---
+
+<DocsLayout title="Formatting & Casing" description="Enforce consistent casing across operationIds, properties, parameters, and component keys." currentPath="/docs/formatting">
+  <h1 class="text-3xl font-bold mb-2">Formatting &amp; Casing</h1>
+  <p class="text-muted-foreground mb-4">
+    Enforce consistent casing across operationIds, properties, parameters, and component keys.
+  </p>
+  <a href="https://openapi-format-playground.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
+    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+      Try formatting in the Playground
+    </span>
+  </a>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">CLI Usage</h2>
+  <CodeBlock
+    client:idle
+    code={`npx openapi-format openapi.json -o output.json --casingFile customCasing.yaml`}
+    title="Terminal"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Casing Types</h2>
+  <div class="overflow-x-auto mb-8">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2 pr-4 font-semibold">Type</th>
+          <th class="text-left py-2 pr-4 font-semibold">Alias</th>
+          <th class="text-left py-2 font-semibold">Example</th>
+        </tr>
+      </thead>
+      <tbody class="text-muted-foreground">
+        <tr class="border-b">
+          <td class="py-2 pr-4">camelCase</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">camelCase</td>
+          <td class="py-2 font-mono text-xs">openapiFormat</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">PascalCase</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">PascalCase</td>
+          <td class="py-2 font-mono text-xs">OpenapiFormat</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">kebab-case</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">kebabCase</td>
+          <td class="py-2 font-mono text-xs">openapi-format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">Train-Case</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">TrainCase</td>
+          <td class="py-2 font-mono text-xs">Openapi-Format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">snake_case</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">snakeCase</td>
+          <td class="py-2 font-mono text-xs">openapi_format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">Ada_Case</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">AdaCase</td>
+          <td class="py-2 font-mono text-xs">Openapi_Format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">CONSTANT_CASE</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">constantCase</td>
+          <td class="py-2 font-mono text-xs">OPENAPI_FORMAT</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">COBOL-CASE</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">cobolCase</td>
+          <td class="py-2 font-mono text-xs">OPENAPI-FORMAT</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">Dot.notation</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">dotNotation</td>
+          <td class="py-2 font-mono text-xs">openapi.format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">Space case</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">spaceCase</td>
+          <td class="py-2 font-mono text-xs">openapi format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">Capital Case</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">capitalCase</td>
+          <td class="py-2 font-mono text-xs">Openapi Format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">lower case</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">lowerCase</td>
+          <td class="py-2 font-mono text-xs">openapi format</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4">UPPER CASE</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">upperCase</td>
+          <td class="py-2 font-mono text-xs">OPENAPI FORMAT</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Configurable Elements</h2>
+  <div class="overflow-x-auto mb-8">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2 pr-4 font-semibold">Key</th>
+          <th class="text-left py-2 font-semibold">Description</th>
+        </tr>
+      </thead>
+      <tbody class="text-muted-foreground">
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">operationId</td>
+          <td class="py-2">Operation IDs in the Operations Object</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">properties</td>
+          <td class="py-2">Schema property keys (inline &amp; components)</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersQuery</td>
+          <td class="py-2">Query parameter names</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersHeader</td>
+          <td class="py-2">Header parameter names</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersPath</td>
+          <td class="py-2">Path parameter names</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersCookie</td>
+          <td class="py-2">Cookie parameter names</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsSchemas</td>
+          <td class="py-2">Schema model keys &amp; $ref links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsExamples</td>
+          <td class="py-2">Example model keys &amp; $ref links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsHeaders</td>
+          <td class="py-2">Header model keys &amp; $ref links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsResponses</td>
+          <td class="py-2">Response model keys &amp; $ref links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsRequestBodies</td>
+          <td class="py-2">Request body model keys &amp; $ref links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsSecuritySchemes</td>
+          <td class="py-2">Security scheme keys &amp; $ref links</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersQuery</td>
+          <td class="py-2">Query parameter component keys</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersHeader</td>
+          <td class="py-2">Header parameter component keys</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersPath</td>
+          <td class="py-2">Path parameter component keys</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersCookie</td>
+          <td class="py-2">Cookie parameter component keys</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Full Configuration Example</h2>
+  <CodeBlock
+    client:idle
+    code={`operationId: snake_case
+properties: camelCase
+
+parametersQuery: kebab-case
+parametersHeader: kebab-case
+parametersPath: snake_case
+
+componentsExamples: PascalCase
+componentsSchemas: camelCase
+componentsHeaders: kebab-case
+componentsResponses: snake_case
+componentsRequestBodies: snake_case
+componentsSecuritySchemes: PascalCase
+
+componentsParametersQuery: snake_case
+componentsParametersHeader: kebab-case
+componentsParametersPath: camelCase`}
+    title="customCasing.yaml"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: operationId</h2>
+  <CodeBlock client:idle code={`operationId: kebab-case`} title="casing.yaml" />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pets:
+    get:
+      operationId: getPets
+  /pets/{petId}:
+    get:
+      operationId: getPetById
+    delete:
+      operationId: deletePet`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pets:
+    get:
+      operationId: get-pets
+  /pets/{petId}:
+    get:
+      operationId: get-pet-by-id
+    delete:
+      operationId: delete-pet`}
+      title="After"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Schema Properties</h2>
+  <CodeBlock client:idle code={`properties: snake_case`} title="casing.yaml" />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`components:
+  schemas:
+    UserModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        emailAddress:
+          type: string
+          example: john@doe.com
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: Doe`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`components:
+  schemas:
+    UserModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        email_address:
+          type: string
+          example: john@doe.com
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe`}
+      title="After"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Component Keys</h2>
+  <CodeBlock client:idle code={`componentsSchemas: PascalCase`} title="casing.yaml" />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /orders:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order-model'
+components:
+  schemas:
+    userModel:
+      type: object
+    order-model:
+      type: object
+    pet_model:
+      type: object`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /orders:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderModel'
+components:
+  schemas:
+    UserModel:
+      type: object
+    OrderModel:
+      type: object
+    PetModel:
+      type: object`}
+      title="After — keys + $ref links updated"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Parameter Names</h2>
+  <CodeBlock
+    client:idle
+    code={`parametersPath: kebab-case
+parametersQuery: snake_case`}
+    title="casing.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`paths:
+  '/pet/{petId}':
+    get:
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+        - name: includeDetails
+          in: query
+          description: Include full details
+        - $ref: '#/components/parameters/LimitParam'
+components:
+  parameters:
+    LimitParam:
+      name: limitParam
+      in: query`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`paths:
+  '/pet/{petId}':
+    get:
+      parameters:
+        - name: pet-id
+          in: path
+          description: ID of pet to return
+        - name: include_details
+          in: query
+          description: Include full details
+        - $ref: '#/components/parameters/LimitParam'
+components:
+  parameters:
+    LimitParam:
+      name: limit_param
+      in: query`}
+      title="After"
+    />
+  </div>
+</DocsLayout>

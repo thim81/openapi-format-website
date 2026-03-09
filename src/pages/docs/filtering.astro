@@ -1,0 +1,605 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '@/components/docs/CodeBlock';
+---
+
+<DocsLayout title="Filtering" description="Strip matching items from your OpenAPI document based on methods, tags, flags, and more." currentPath="/docs/filtering">
+  <h1 class="text-3xl font-bold mb-2">Filtering</h1>
+  <p class="text-muted-foreground mb-4">
+    Strip matching items from your OpenAPI document based on methods, tags, flags, and more.
+  </p>
+  <a href="https://openapi-format-playground.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
+    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+      Try filtering in the Playground
+    </span>
+  </a>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">CLI Usage</h2>
+  <CodeBlock
+    client:idle
+    code={`npx openapi-format openapi.json -o output.json --filterFile customFilter.yaml`}
+    title="Terminal"
+  />
+  <CodeBlock
+    client:idle
+    code={`flags:
+  - x-visibility
+flagValues: []
+tags: []
+operationIds:
+  - addPet
+  - findPetsByStatus`}
+    title="customFilter.yaml"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter Options Reference</h2>
+  <div class="overflow-x-auto mb-8">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2 pr-4 font-semibold">Type</th>
+          <th class="text-left py-2 pr-4 font-semibold">Description</th>
+          <th class="text-left py-2 font-semibold">Example</th>
+        </tr>
+      </thead>
+      <tbody class="text-muted-foreground">
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">methods</td>
+          <td class="py-2 pr-4">Remove matching HTTP methods</td>
+          <td class="py-2 font-mono text-xs">['get','post']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseMethods</td>
+          <td class="py-2 pr-4">Keep only these methods</td>
+          <td class="py-2 font-mono text-xs">['get','post']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">tags</td>
+          <td class="py-2 pr-4">Remove matching tags</td>
+          <td class="py-2 font-mono text-xs">['pet','user']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseTags</td>
+          <td class="py-2 pr-4">Keep only these tags</td>
+          <td class="py-2 font-mono text-xs">['pet','user']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">operationIds</td>
+          <td class="py-2 pr-4">Remove matching operation IDs</td>
+          <td class="py-2 font-mono text-xs">['findPets','updatePet']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseOperationIds</td>
+          <td class="py-2 pr-4">Keep only these operation IDs</td>
+          <td class="py-2 font-mono text-xs">['findPets']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">operations</td>
+          <td class="py-2 pr-4">Remove matching method::path combos</td>
+          <td class="py-2 font-mono text-xs">['GET::/pets','PUT::/pets']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">flags</td>
+          <td class="py-2 pr-4">Remove items with these custom flags</td>
+          <td class="py-2 font-mono text-xs">['x-exclude','x-internal']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseFlags</td>
+          <td class="py-2 pr-4">Keep only items with these flags</td>
+          <td class="py-2 font-mono text-xs">['x-public']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">flagValues</td>
+          <td class="py-2 pr-4">Remove items matching flag + value</td>
+          <td class="py-2 font-mono text-xs">['x-version: 1.0']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseFlagValues</td>
+          <td class="py-2 pr-4">Keep only matching flag + value</td>
+          <td class="py-2 font-mono text-xs">['x-version: 2.0']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">responseContent</td>
+          <td class="py-2 pr-4">Remove response content types</td>
+          <td class="py-2 font-mono text-xs">['application/xml']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseResponseContent</td>
+          <td class="py-2 pr-4">Keep only these response types</td>
+          <td class="py-2 font-mono text-xs">['application/json']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">requestContent</td>
+          <td class="py-2 pr-4">Remove request body content types</td>
+          <td class="py-2 font-mono text-xs">['application/xml']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseRequestContent</td>
+          <td class="py-2 pr-4">Keep only these request types</td>
+          <td class="py-2 font-mono text-xs">['application/json']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">unusedComponents</td>
+          <td class="py-2 pr-4">Remove unreferenced components</td>
+          <td class="py-2 font-mono text-xs">['schemas','examples']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">stripFlags</td>
+          <td class="py-2 pr-4">Strip flag properties (keep parent)</td>
+          <td class="py-2 font-mono text-xs">['x-internal']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">preserveEmptyObjects</td>
+          <td class="py-2 pr-4">Keep empty objects</td>
+          <td class="py-2 font-mono text-xs">true or ['schema']</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">textReplace</td>
+          <td class="py-2 pr-4">Search &amp; replace text values</td>
+          <td class="py-2 font-mono text-xs">[{'{searchFor, replaceWith}'}]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Methods</h2>
+  <p class="mb-4 text-muted-foreground">
+    Remove all operations matching specified HTTP methods. Use{' '}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">inverseMethods</code> to
+    keep only specified methods.
+  </p>
+  <CodeBlock
+    client:idle
+    code={`methods:
+  - get
+  - put`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: Finds Pets by status
+    put:
+      summary: Update an existing pet
+    post:
+      summary: Add a new pet`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    post:
+      summary: Add a new pet`}
+      title="After — GET and PUT removed"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Tags</h2>
+  <p class="mb-4 text-muted-foreground">
+    Remove all operations tagged with specified values:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`tags:
+  - pet`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      tags:
+        - pet
+      summary: List all pets
+    post:
+      tags:
+        - pet
+      summary: Add a new pet
+  /users:
+    get:
+      tags:
+        - user
+      summary: List all users`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /users:
+    get:
+      tags:
+        - user
+      summary: List all users`}
+      title="After — 'pet' operations removed"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by operationIds</h2>
+  <p class="mb-4 text-muted-foreground">
+    Remove specific operations by their{' '}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">operationId</code>:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`operationIds:
+  - findPetsByStatus`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      operationId: findPetsByStatus
+      summary: Finds Pets by status
+    post:
+      operationId: addPet
+      summary: Add a new pet`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    post:
+      operationId: addPet
+      summary: Add a new pet`}
+      title="After — findPetsByStatus removed"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Operations</h2>
+  <p class="mb-4 text-muted-foreground">
+    Target specific method + path combinations using the{' '}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">METHOD::path</code> format.
+    Supports wildcards:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`operations:
+  # Exact match
+  - "GET::/pets"
+  # All methods on a path
+  - "*::/pets"
+  # All sub-paths
+  - "GET::/pets/*"
+  # Full wildcard
+  - "*::/pets/*"`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: Finds Pets by status
+    put:
+      summary: Update an existing pet
+  /users:
+    get:
+      summary: List all users`}
+      title="Before (operations: ['PUT::/pets'])"
+    />
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: Finds Pets by status
+  /users:
+    get:
+      summary: List all users`}
+      title="After — PUT /pets removed"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Flags</h2>
+  <p class="mb-4 text-muted-foreground">
+    Remove items that have a specific custom property (e.g.{' '}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">x-internal</code>):
+  </p>
+  <CodeBlock
+    client:idle
+    code={`flags:
+  - x-internal`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: List all pets
+  /internal/metrics:
+    get:
+      x-internal: true
+      summary: Get metrics
+  /internal/health:
+    get:
+      x-internal: true
+      summary: Health check`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: List all pets`}
+      title="After — internal endpoints removed"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Flag Values</h2>
+  <p class="mb-4 text-muted-foreground">
+    Match flag + value combinations, including array values:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`flagValues:
+  - x-version: 1.0
+  - x-version: 3.0`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      x-version: 1.0
+      summary: List pets (v1)
+    post:
+      x-version: 2.0
+      summary: Add pet (v2)
+  /users:
+    get:
+      x-version: 3.0
+      summary: List users (v3)`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    post:
+      x-version: 2.0
+      summary: Add pet (v2)`}
+      title="After — v1.0 and v3.0 removed"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Filter Response Content</h2>
+  <p class="mb-4 text-muted-foreground">Remove specific content types from responses:</p>
+  <CodeBlock
+    client:idle
+    code={`responseContent:
+  - application/xml`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pet:
+    post:
+      summary: Add a new pet
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pet'`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pet:
+    post:
+      summary: Add a new pet
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'`}
+      title="After — XML content removed"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Remove Unused Components</h2>
+  <p class="mb-4 text-muted-foreground">
+    Strip unreferenced items from the components section. Recursively removes nested unused
+    components (up to 10 levels).
+  </p>
+  <CodeBlock
+    client:idle
+    code={`unusedComponents:
+  - schemas
+  - parameters
+  - examples`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pets:
+    get:
+      summary: List all pets
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+components:
+  schemas:
+    Pet:
+      type: object
+    Error:
+      type: object
+    Category:
+      type: object`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pets:
+    get:
+      summary: List all pets
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+components:
+  schemas:
+    Pet:
+      type: object`}
+      title="After — Error & Category removed (unused)"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Strip Flags</h2>
+  <p class="mb-4 text-muted-foreground">
+    Remove only the flag properties while keeping the parent operation intact:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`stripFlags:
+  - x-internal
+  - x-beta`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pets:
+    get:
+      x-internal: true
+      x-beta: true
+      summary: Finds Pets
+      operationId: findPets`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`paths:
+  /pets:
+    get:
+      summary: Finds Pets
+      operationId: findPets`}
+      title="After — flags removed, operation kept"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Text Replace</h2>
+  <p class="mb-4 text-muted-foreground">
+    Search and replace text across descriptions, summaries, and URLs:
+  </p>
+  <CodeBlock
+    client:idle
+    code={`textReplace:
+  - searchFor: 'Pets'
+    replaceWith: 'Dogs'
+  - searchFor: 'swagger.io'
+    replaceWith: 'openapis.org'`}
+    title="filter.yaml"
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: Pets API
+  description: Manage your Pets
+paths:
+  /pets:
+    get:
+      summary: Find Pets by status
+      description: Returns Pets from swagger.io`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      code={`openapi: 3.0.0
+info:
+  title: Dogs API
+  description: Manage your Dogs
+paths:
+  /pets:
+    get:
+      summary: Find Dogs by status
+      description: Returns Dogs from openapis.org`}
+      title="After — text replaced"
+    />
+  </div>
+</DocsLayout>
