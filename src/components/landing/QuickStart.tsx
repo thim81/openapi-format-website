@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Copy, Check } from 'lucide-react';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-bash';
+import Prism from '@/lib/prism-setup';
 
 const blocks = [
   { label: 'Format a spec', code: 'npx openapi-format openapi.yaml -o formatted.yaml' },

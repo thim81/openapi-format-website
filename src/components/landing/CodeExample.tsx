@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-yaml';
+import Prism from '@/lib/prism-setup';
 
 const before = `openapi: 3.0.3
 info:
