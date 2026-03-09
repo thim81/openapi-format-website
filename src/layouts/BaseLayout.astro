@@ -1,0 +1,58 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'openapi-format | Format, Sort and Filter OpenAPI Definitions',
+  description = 'A CLI and library to sort, filter, and format OpenAPI specs, making them consistent, clean, and diff-friendly.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+import '../index.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="thim81" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="openapi-format" />
+    <meta property="og:image" content="/placeholder.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/placeholder.svg" />
+
+    <script
+      async
+      defer
+      data-domain="openapi-format-playground.vercel.app"
+      src="https://cdn.inspectr.dev/script.js"
+    ></script>
+
+    <!-- Prevent FOUC: apply theme before render -->
+    <script is:inline>
+      const theme = localStorage.getItem('theme') ??
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script>
+  </head>
+  <body class="bg-background text-foreground">
+    <slot />
+    <script src="../scripts/scroll-animate.ts"></script>
+  </body>
+</html>

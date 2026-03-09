@@ -1,0 +1,44 @@
+---
+const docLinks = [
+  { label: 'Installation', href: '/docs/installation' },
+  { label: 'CLI Options', href: '/docs/cli-options' },
+  { label: 'Configuration', href: '/docs/configuration' },
+  { label: 'Sorting', href: '/docs/sorting' },
+  { label: 'Filtering', href: '/docs/filtering' },
+  { label: 'Formatting', href: '/docs/formatting' },
+  { label: 'Overlays', href: '/docs/overlays' },
+  { label: 'Generate', href: '/docs/generate' },
+  { label: 'Split & Bundle', href: '/docs/split-bundle' },
+  { label: 'Convert', href: '/docs/convert' },
+  { label: 'Rename', href: '/docs/rename' },
+];
+---
+
+<section id="docs" class="py-20 bg-muted/30">
+  <div class="container max-w-4xl">
+    <div
+      class="text-center mb-10 opacity-0"
+      data-animate style="--animation: fade-in-up 0.5s ease"
+    >
+      <svg class="h-10 w-10 text-primary mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+      <h2 class="text-3xl font-bold mb-3">Explore the Docs</h2>
+      <p class="text-muted-foreground max-w-xl mx-auto">
+        Everything you need to get started — from installation to advanced programmatic usage.
+      </p>
+    </div>
+
+    <div
+      class="flex flex-wrap justify-center gap-2 opacity-0"
+      data-animate style="--animation: fade-in-up 0.5s ease 0.1s"
+    >
+      {docLinks.map((d) => (
+        <a href={d.href}>
+          <button class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md text-sm font-medium h-9 px-3 border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+            {d.label}
+            <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,13 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Copy, Check, ExternalLink } from 'lucide-react';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-yaml';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-bash';
-import 'prismjs/components/prism-typescript';
+import Prism from '@/lib/prism-setup';
 
-const PLAYGROUND_URL = 'https://openapi-format-playground.vercel.app';
+const PLAYGROUND_URL = 'https://playground.openapi-format.com';
 
 interface CodeBlockProps {
   code: string;
