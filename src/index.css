@@ -105,8 +105,8 @@ All colors MUST be HSL.
 }
 
 /* Prism syntax highlighting — light mode */
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   color: hsl(var(--foreground));
   text-shadow: none;
 }

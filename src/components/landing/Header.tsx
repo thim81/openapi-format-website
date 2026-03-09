@@ -1,105 +1,105 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Github, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X, Github, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Use Cases", href: "#use-cases" },
-  { label: "Example", href: "#example" },
-  { label: "Quick Start", href: "#quick-start" },
+  { label: 'Features', href: '#features' },
+  { label: 'Use Cases', href: '#use-cases' },
+  { label: 'Example', href: '#example' },
+  { label: 'Quick Start', href: '#quick-start' },
 ];
 
-const PLAYGROUND_URL = "https://openapi-format-playground.vercel.app";
+const PLAYGROUND_URL = 'https://openapi-format-playground.vercel.app';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm">
-      <div className="container flex h-14 items-center justify-between">
-        <a href="#" className="text-lg font-bold tracking-tight">
+    <header className='sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm'>
+      <div className='container flex h-14 items-center justify-between'>
+        <a href='#' className='text-lg font-bold tracking-tight'>
           openapi-format
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className='hidden md:flex items-center gap-1'>
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className='px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
             >
               {l.label}
             </a>
           ))}
           <Link
-            to="/docs/installation"
-            className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            to='/docs/installation'
+            className='px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             Docs
           </Link>
-          <a href={PLAYGROUND_URL} target="_blank" rel="noopener noreferrer">
-            <Button variant="default" size="sm" className="gap-1.5 ml-1">
+          <a href={PLAYGROUND_URL} target='_blank' rel='noopener noreferrer'>
+            <Button variant='default' size='sm' className='gap-1.5 ml-1'>
               Playground
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLink className='h-3 w-3' />
             </Button>
           </a>
           <a
-            href="https://github.com/thim81/openapi-format"
-            target="_blank"
-            rel="noopener noreferrer"
+            href='https://github.com/thim81/openapi-format'
+            target='_blank'
+            rel='noopener noreferrer'
           >
-            <Button variant="ghost" size="icon" aria-label="GitHub">
-              <Github className="h-4 w-4" />
+            <Button variant='ghost' size='icon' aria-label='GitHub'>
+              <Github className='h-4 w-4' />
             </Button>
           </a>
           <ThemeToggle />
         </nav>
 
         {/* Mobile toggle */}
-        <div className="flex md:hidden items-center gap-1">
+        <div className='flex md:hidden items-center gap-1'>
           <ThemeToggle />
-          <Button variant="ghost" size="icon" onClick={() => setOpen(!open)} aria-label="Menu">
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <Button variant='ghost' size='icon' onClick={() => setOpen(!open)} aria-label='Menu'>
+            {open ? <X className='h-5 w-5' /> : <Menu className='h-5 w-5' />}
           </Button>
         </div>
       </div>
 
       {/* Mobile nav */}
       {open && (
-        <nav className="md:hidden border-t bg-background px-4 pb-4 pt-2 flex flex-col gap-2">
+        <nav className='md:hidden border-t bg-background px-4 pb-4 pt-2 flex flex-col gap-2'>
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className='py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
             >
               {l.label}
             </a>
           ))}
           <Link
-            to="/docs/installation"
+            to='/docs/installation'
             onClick={() => setOpen(false)}
-            className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className='py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             Docs
           </Link>
           <a
             href={PLAYGROUND_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-1.5"
+            target='_blank'
+            rel='noopener noreferrer'
+            className='py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-1.5'
           >
-            Playground <ExternalLink className="h-3 w-3" />
+            Playground <ExternalLink className='h-3 w-3' />
           </a>
           <a
-            href="https://github.com/thim81/openapi-format"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            href='https://github.com/thim81/openapi-format'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             GitHub
           </a>
