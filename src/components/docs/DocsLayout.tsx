@@ -121,11 +121,11 @@ const DocsLayout = ({ children }: { children: React.ReactNode }) => {
   );
 
   return (
-    <div className='min-h-screen bg-background text-foreground'>
+    <div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
       {/* Header */}
       <header className='sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm'>
-        <div className='container flex h-14 items-center justify-between'>
-          <div className='flex items-center gap-4'>
+        <div className='container flex h-14 items-center justify-between min-w-0'>
+          <div className='flex items-center gap-4 min-w-0'>
             <Button
               variant='ghost'
               size='icon'
@@ -140,7 +140,7 @@ const DocsLayout = ({ children }: { children: React.ReactNode }) => {
             </Link>
             <span className='hidden sm:inline text-sm text-muted-foreground'>/ docs</span>
           </div>
-          <div className='flex items-center gap-1'>
+          <div className='flex items-center gap-1 shrink-0'>
             <Button
               variant='outline'
               size='sm'
@@ -181,7 +181,9 @@ const DocsLayout = ({ children }: { children: React.ReactNode }) => {
                 <Github className='h-4 w-4' />
               </Button>
             </a>
-            <ThemeToggle />
+            <div className='hidden sm:block'>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </header>
@@ -194,13 +196,17 @@ const DocsLayout = ({ children }: { children: React.ReactNode }) => {
 
         {/* Mobile sidebar */}
         {sidebarOpen && (
-          <div className='fixed inset-0 z-40 lg:hidden'>
+          <div className='fixed inset-0 z-[60] lg:hidden'>
             <div
               className='absolute inset-0 bg-background/80 backdrop-blur-sm'
               onClick={() => setSidebarOpen(false)}
             />
             <aside className='relative z-50 w-72 h-full bg-background border-r p-6 pt-4 overflow-y-auto'>
               {sidebar}
+              <div className='mt-6 border-t pt-4'>
+                <div className='text-xs font-medium text-muted-foreground mb-2'>Appearance</div>
+                <ThemeToggle />
+              </div>
             </aside>
           </div>
         )}
