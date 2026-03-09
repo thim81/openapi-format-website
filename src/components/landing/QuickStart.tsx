@@ -4,7 +4,10 @@ import Prism from '@/lib/prism-setup';
 
 const blocks = [
   { label: 'Format a spec', code: 'npx openapi-format openapi.yaml -o formatted.yaml' },
-  { label: 'Sort & filter', code: 'npx openapi-format openapi.yaml --sortFile sort.json --filterFile filter.json' },
+  {
+    label: 'Sort & filter',
+    code: 'npx openapi-format openapi.yaml --sortFile sort.json --filterFile filter.json',
+  },
   { label: 'Convert to JSON', code: 'npx openapi-format openapi.yaml -o openapi.json' },
   { label: 'Install', code: 'npm install --save openapi-format' },
 ];
@@ -17,7 +20,11 @@ const CopyBtn = ({ text }: { text: string }) => {
     setTimeout(() => setCopied(false), 2000);
   };
   return (
-    <button onClick={copy} className='text-muted-foreground hover:text-foreground transition-colors' aria-label='Copy'>
+    <button
+      onClick={copy}
+      className='text-muted-foreground hover:text-foreground transition-colors'
+      aria-label='Copy'
+    >
       {copied ? <Check className='h-3.5 w-3.5' /> : <Copy className='h-3.5 w-3.5' />}
     </button>
   );

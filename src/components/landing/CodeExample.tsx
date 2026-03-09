@@ -50,10 +50,11 @@ const HighlightedCode = ({ code }: { code: string }) => {
     }
   }, [code]);
   return (
-    <pre ref={ref} className='rounded-lg border bg-card p-4 text-sm overflow-x-auto font-mono leading-relaxed'>
-      <code className='language-yaml'>
-        {code}
-      </code>
+    <pre
+      ref={ref}
+      className='rounded-lg border bg-card p-4 text-sm overflow-x-auto font-mono leading-relaxed'
+    >
+      <code className='language-yaml'>{code}</code>
     </pre>
   );
 };

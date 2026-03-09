@@ -10,18 +10,58 @@ import {
 import { FileText } from 'lucide-react';
 
 const docPages = [
-  { label: 'Installation', href: '/docs/installation', description: 'NPX, local & global install setup' },
-  { label: 'CLI Options', href: '/docs/cli-options', description: 'Command-line flags, arguments & output' },
-  { label: 'Configuration File', href: '/docs/configuration', description: 'YAML/JSON config file reference' },
+  {
+    label: 'Installation',
+    href: '/docs/installation',
+    description: 'NPX, local & global install setup',
+  },
+  {
+    label: 'CLI Options',
+    href: '/docs/cli-options',
+    description: 'Command-line flags, arguments & output',
+  },
+  {
+    label: 'Configuration File',
+    href: '/docs/configuration',
+    description: 'YAML/JSON config file reference',
+  },
   { label: 'Sorting', href: '/docs/sorting', description: 'Sort properties, paths & components' },
-  { label: 'Filtering', href: '/docs/filtering', description: 'Filter, remove or keep operations & tags' },
-  { label: 'Formatting & Casing', href: '/docs/formatting', description: 'camelCase, snake_case & naming conventions' },
-  { label: 'Overlays', href: '/docs/overlays', description: 'Merge, extend & override with overlay files' },
+  {
+    label: 'Filtering',
+    href: '/docs/filtering',
+    description: 'Filter, remove or keep operations & tags',
+  },
+  {
+    label: 'Formatting & Casing',
+    href: '/docs/formatting',
+    description: 'camelCase, snake_case & naming conventions',
+  },
+  {
+    label: 'Overlays',
+    href: '/docs/overlays',
+    description: 'Merge, extend & override with overlay files',
+  },
   { label: 'Generate', href: '/docs/generate', description: 'Generate output from OpenAPI specs' },
-  { label: 'Split & Bundle', href: '/docs/split-bundle', description: 'Split into multi-file or bundle into one' },
-  { label: 'Convert', href: '/docs/convert', description: 'Convert between Swagger/OpenAPI & YAML/JSON' },
-  { label: 'Rename', href: '/docs/rename', description: 'Rename titles, descriptions & operationIds' },
-  { label: 'Programmatic Usage', href: '/docs/programmatic', description: 'JavaScript/TypeScript API & imports' },
+  {
+    label: 'Split & Bundle',
+    href: '/docs/split-bundle',
+    description: 'Split into multi-file or bundle into one',
+  },
+  {
+    label: 'Convert',
+    href: '/docs/convert',
+    description: 'Convert between Swagger/OpenAPI & YAML/JSON',
+  },
+  {
+    label: 'Rename',
+    href: '/docs/rename',
+    description: 'Rename titles, descriptions & operationIds',
+  },
+  {
+    label: 'Programmatic Usage',
+    href: '/docs/programmatic',
+    description: 'JavaScript/TypeScript API & imports',
+  },
 ];
 
 interface DocsSearchProps {

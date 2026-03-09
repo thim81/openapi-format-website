@@ -5,11 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://openapi-format.vercel.app',
-  integrations: [
-    react(),
-    tailwind(),
-    sitemap(),
-  ],
+  integrations: [react(), tailwind(), sitemap()],
   server: {
     port: 7070,
   },
