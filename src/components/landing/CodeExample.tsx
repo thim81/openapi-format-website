@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-yaml';
 
@@ -43,20 +43,17 @@ components:
       type: object`;
 
 const HighlightedCode = ({ code }: { code: string }) => {
-  const codeRef = useRef<HTMLElement>(null);
-  const [highlighted, setHighlighted] = useState(false);
+  const ref = useRef<HTMLPreElement>(null);
   useEffect(() => {
-    if (codeRef.current) {
-      codeRef.current.className = 'language-yaml';
-      codeRef.current.textContent = code;
-      Prism.highlightElement(codeRef.current);
-      setHighlighted(true);
+    if (ref.current) {
+      const codeEl = ref.current.querySelector('code');
+      if (codeEl) Prism.highlightElement(codeEl);
     }
   }, [code]);
   return (
-    <pre className='rounded-lg border bg-card p-4 text-sm overflow-x-auto font-mono leading-relaxed'>
-      <code ref={codeRef} suppressHydrationWarning>
-        {!highlighted && code}
+    <pre ref={ref} className='rounded-lg border bg-card p-4 text-sm overflow-x-auto font-mono leading-relaxed'>
+      <code className='language-yaml'>
+        {code}
       </code>
     </pre>
   );
