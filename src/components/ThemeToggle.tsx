@@ -1,9 +1,28 @@
-import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 import { Sun, Moon, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+type Theme = 'light' | 'dark' | 'system';
+
+function getStoredTheme(): Theme {
+  if (typeof window === 'undefined') return 'system';
+  return (localStorage.getItem('theme') as Theme) ?? 'system';
+}
+
+function applyTheme(theme: Theme) {
+  const isDark =
+    theme === 'dark' ||
+    (theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('dark', isDark);
+  localStorage.setItem('theme', theme);
+}
+
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const [theme, setTheme] = useState<Theme>(getStoredTheme);
+
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
 
   const cycle = () => {
     if (theme === 'light') setTheme('dark');

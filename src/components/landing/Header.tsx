@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Menu, X, Github, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -19,7 +18,7 @@ const Header = () => {
   return (
     <header className='sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm'>
       <div className='container flex h-14 items-center justify-between'>
-        <a href='#' className='text-lg font-bold tracking-tight'>
+        <a href='/' className='text-lg font-bold tracking-tight'>
           openapi-format
         </a>
 
@@ -34,12 +33,12 @@ const Header = () => {
               {l.label}
             </a>
           ))}
-          <Link
-            to='/docs/installation'
+          <a
+            href='/docs/installation'
             className='px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             Docs
-          </Link>
+          </a>
           <a href={PLAYGROUND_URL} target='_blank' rel='noopener noreferrer'>
             <Button variant='default' size='sm' className='gap-1.5 ml-1'>
               Playground
@@ -80,13 +79,13 @@ const Header = () => {
               {l.label}
             </a>
           ))}
-          <Link
-            to='/docs/installation'
+          <a
+            href='/docs/installation'
             onClick={() => setOpen(false)}
             className='py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             Docs
-          </Link>
+          </a>
           <a
             href={PLAYGROUND_URL}
             target='_blank'
