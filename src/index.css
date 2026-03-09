@@ -206,3 +206,11 @@ pre[class*='language-'] {
 .dark .token.class-name {
   color: hsl(340 70% 70%);
 }
+
+/* Scroll-triggered animations */
+[data-animate] {
+  opacity: 0;
+}
+[data-animate].animate {
+  animation: var(--animation) forwards;
+}
