@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Quick Start', href: '#quick-start' },
 ];
 
-const PLAYGROUND_URL = 'https://openapi-format-playground.vercel.app';
+const PLAYGROUND_URL = 'https://playground.openapi-format.com';
 
 const Header = () => {
   const [open, setOpen] = useState(false);

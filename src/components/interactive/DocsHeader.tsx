@@ -62,7 +62,7 @@ const DocsHeader = () => {
               <Search className='h-4 w-4' />
             </Button>
             <a
-              href='https://openapi-format-playground.vercel.app'
+              href='https://playground.openapi-format.com'
               target='_blank'
               rel='noopener noreferrer'
             >

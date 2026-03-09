@@ -7,7 +7,7 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-typescript';
 
-const PLAYGROUND_URL = 'https://openapi-format-playground.vercel.app';
+const PLAYGROUND_URL = 'https://playground.openapi-format.com';
 
 interface CodeBlockProps {
   code: string;

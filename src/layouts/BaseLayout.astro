@@ -10,6 +10,8 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+import '../index.css';
 ---
 
 <!doctype html>
@@ -38,7 +40,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <script
       async
       defer
-      data-domain="openapi-format-playground.vercel.app"
+      data-domain="playground.openapi-format.com"
       src="https://cdn.inspectr.dev/script.js"
     ></script>
 
