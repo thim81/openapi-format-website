@@ -18,8 +18,15 @@ const Header = () => {
   return (
     <header className='sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm'>
       <div className='container flex h-14 items-center justify-between'>
-        <a href='/' className='text-lg font-bold tracking-tight'>
-          openapi-format
+        <a href='/' className='flex items-center gap-2 text-lg font-bold tracking-tight'>
+          <img
+            src='/openapi-format-icon.svg'
+            alt='OpenAPI Format'
+            className='h-6 w-6 shrink-0'
+            width={24}
+            height={24}
+          />
+          <span>openapi-format</span>
         </a>
 
         {/* Desktop nav */}

@@ -34,8 +34,15 @@ const DocsHeader = () => {
             >
               {sidebarOpen ? <X className='h-5 w-5' /> : <Menu className='h-5 w-5' />}
             </Button>
-            <a href='/' className='text-lg font-bold tracking-tight'>
-              openapi-format
+            <a href='/' className='flex items-center gap-2 text-lg font-bold tracking-tight'>
+              <img
+                src='/openapi-format-icon.svg'
+                alt='OpenAPI Format'
+                className='h-6 w-6 shrink-0'
+                width={24}
+                height={24}
+              />
+              <span>openapi-format</span>
             </a>
             <span className='hidden sm:inline text-sm text-muted-foreground'>/ docs</span>
           </div>
