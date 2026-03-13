@@ -6,7 +6,6 @@ import ThemeToggle from '@/components/ThemeToggle';
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'Use Cases', href: '#use-cases' },
-  { label: 'Example', href: '#example' },
   { label: 'Quick Start', href: '#quick-start' },
   { label: 'Showcase', href: '#playground' },
 ];
