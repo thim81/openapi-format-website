@@ -45,7 +45,13 @@ const HighlightedInline = ({ code }: { code: string }) => {
 const QuickStart = () => (
   <section id='quick-start' className='py-20'>
     <div className='container max-w-3xl'>
-      <h2 className='text-3xl font-bold text-center mb-12'>Quick Start</h2>
+      <div className='mb-12 text-center'>
+        <h2 className='text-3xl font-bold'>Quick Start</h2>
+        <p className='mx-auto mt-4 max-w-2xl text-base leading-7 text-muted-foreground'>
+          Start with the basics: format, sort, filter, and convert your OpenAPI files with a
+          single CLI.
+        </p>
+      </div>
       <div className='flex flex-col gap-4'>
         {blocks.map((b) => (
           <div key={b.label}>
@@ -56,6 +62,14 @@ const QuickStart = () => (
             </div>
           </div>
         ))}
+      </div>
+      <div className='mt-8 text-center'>
+        <a
+          href='#docs'
+          className='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-5 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground'
+        >
+          Explore more options
+        </a>
       </div>
     </div>
   </section>
