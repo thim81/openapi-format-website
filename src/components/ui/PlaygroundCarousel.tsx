@@ -3,12 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight, Expand } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-} from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
 type PlaygroundSlide = {
@@ -23,10 +18,7 @@ type PlaygroundCarouselProps = {
   className?: string;
 };
 
-export default function PlaygroundCarousel({
-  slides,
-  className,
-}: PlaygroundCarouselProps) {
+export default function PlaygroundCarousel({ slides, className }: PlaygroundCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: true });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);

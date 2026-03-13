@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Use Cases', href: '#use-cases' },
   { label: 'Example', href: '#example' },
   { label: 'Quick Start', href: '#quick-start' },
+  { label: 'Showcase', href: '#playground' },
 ];
 
 const PLAYGROUND_URL = 'https://playground.openapi-format.com';
