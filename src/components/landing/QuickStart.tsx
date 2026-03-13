@@ -48,8 +48,8 @@ const QuickStart = () => (
       <div className='mb-12 text-center'>
         <h2 className='text-3xl font-bold'>Quick Start</h2>
         <p className='mx-auto mt-4 max-w-2xl text-base leading-7 text-muted-foreground'>
-          Start with the basics: format, sort, filter, and convert your OpenAPI files with a
-          single CLI.
+          Start with the basics: format, sort, filter, and convert your OpenAPI files with a single
+          CLI.
         </p>
       </div>
       <div className='flex flex-col gap-4'>
