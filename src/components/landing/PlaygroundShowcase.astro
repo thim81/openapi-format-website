@@ -49,47 +49,43 @@ const slides = [
 
 <section id="playground" class="border-t py-20 md:py-28">
   <div class="container max-w-6xl">
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-12">
+    <div class="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start md:gap-12">
       <div
-        class="max-w-xl opacity-0"
+        class="mx-auto min-w-0 w-full max-w-[320px] opacity-0 md:mx-0 md:max-w-xl"
         data-animate
         style="--animation: fade-in-left 0.6s ease"
       >
         <div class="mb-4 inline-flex items-center gap-2 rounded-full border bg-muted/50 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
           Online Playground
         </div>
-        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        <h2 class="text-3xl font-bold tracking-tight text-balance md:text-4xl">
           Explore openapi-format in the browser
         </h2>
-        <p class="mt-4 text-base leading-7 text-muted-foreground md:text-lg">
+        <p class="mt-4 text-base leading-7 text-balance text-muted-foreground md:text-lg">
           The online playground lets you format, filter, sort, compare, and preview OpenAPI
           documents without installing anything locally.
         </p>
-        <p class="mt-4 text-base leading-7 text-muted-foreground">
+        <p class="mt-4 text-base leading-7 text-balance text-muted-foreground">
             Test config ideas, validate overlays, preview changes to your OpenAPI spec, and share the final result.
         </p>
 
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer">
-            <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-8 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+        <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:items-start">
+          <a class="w-full sm:w-auto" href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer">
+            <button class="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 bg-primary text-primary-foreground transition-colors hover:bg-primary/90 sm:w-auto sm:px-8">
               Open Playground
               <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             </button>
           </a>
-          <a href="/docs/installation">
-            <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-8 border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+          <a class="w-full sm:w-auto" href="/docs/installation">
+            <button class="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 border border-input bg-background transition-colors hover:bg-accent hover:text-accent-foreground sm:w-auto sm:px-8">
               Read the Docs
             </button>
           </a>
         </div>
       </div>
 
-      <div
-        class="opacity-0"
-        data-animate
-        style="--animation: fade-in-right 0.6s ease 0.1s"
-      >
-        <PlaygroundCarousel client:visible slides={slides} />
+      <div class="opacity-0" data-animate style="--animation: fade-in-right 0.6s ease 0.1s">
+        <PlaygroundCarousel client:visible slides={slides} className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0" />
       </div>
     </div>
   </div>

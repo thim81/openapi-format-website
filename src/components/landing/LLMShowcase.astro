@@ -47,15 +47,15 @@ const valuePoints = [
       style="--animation: fade-in-up 0.5s ease 0.08s"
     >
       <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-start">
-        <div>
+        <div class="min-w-0">
           <h3 class="text-2xl font-semibold tracking-tight">Install the skill once</h3>
-          <p class="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
+          <p class="mt-4 max-w-2xl text-base leading-7 break-words text-muted-foreground">
             Add the
             <a
               href={skillUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="font-medium text-foreground underline underline-offset-4 hover:text-primary transition-colors"
+              class="break-words font-medium text-foreground underline underline-offset-4 transition-colors hover:text-primary"
             >
               `openapi-format` skill
             </a>
