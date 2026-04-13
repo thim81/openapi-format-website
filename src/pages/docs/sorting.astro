@@ -141,6 +141,7 @@ import CodeBlock from '@/components/docs/CodeBlock';
   <h3 class="text-xl font-semibold mt-6 mb-3">Example</h3>
   <div class="grid gap-4 md:grid-cols-2">
     <CodeBlock
+            language="openapi"
       client:idle
       code={`components:
   schemas:
@@ -154,6 +155,7 @@ import CodeBlock from '@/components/docs/CodeBlock';
     />
     <CodeBlock
       client:idle
+      language="openapi"
       code={`components:
   schemas:
     Address:
@@ -179,6 +181,7 @@ import CodeBlock from '@/components/docs/CodeBlock';
   <div class="grid gap-4 md:grid-cols-2">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`schemas:
   UserDto:
     type: object
@@ -191,6 +194,7 @@ import CodeBlock from '@/components/docs/CodeBlock';
     />
     <CodeBlock
       client:idle
+      language="openapi"
       code={`schemas:
   UserDto:
     type: object

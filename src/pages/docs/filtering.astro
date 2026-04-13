@@ -447,9 +447,10 @@ paths:
   - application/xml`}
     title="filter.yaml"
   />
-  <div class="grid gap-4 md:grid-cols-2 mt-4">
+  <div class="mt-4">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`paths:
   /pet:
     post:
@@ -466,8 +467,11 @@ paths:
                 $ref: '#/components/schemas/Pet'`}
       title="Before"
     />
+  </div>
+    <div class="mt-4">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`paths:
   /pet:
     post:
@@ -496,9 +500,10 @@ paths:
   - examples`}
     title="filter.yaml"
   />
-  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <div class="mt-4">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`paths:
   /pets:
     get:
@@ -519,8 +524,11 @@ components:
       type: object`}
       title="Before"
     />
+    </div>
+    <div class="mt-4">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`paths:
   /pets:
     get:
@@ -553,6 +561,7 @@ components:
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`paths:
   /pets:
     get:
@@ -564,6 +573,7 @@ components:
     />
     <CodeBlock
       client:idle
+      language="openapi"
       code={`paths:
   /pets:
     get:
@@ -586,7 +596,7 @@ components:
     replaceWith: 'openapis.org'`}
     title="filter.yaml"
   />
-  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"
@@ -601,6 +611,8 @@ paths:
       description: Returns Pets from swagger.io`}
       title="Before"
     />
+    </div>
+    <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"
