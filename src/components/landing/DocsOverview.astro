@@ -1,4 +1,6 @@
 ---
+import DocsSearchCta from './DocsSearchCta';
+
 const docLinks = [
   { label: 'Installation', href: '/docs/installation' },
   { label: 'CLI Options', href: '/docs/cli-options' },
@@ -25,6 +27,9 @@ const docLinks = [
       <p class="text-muted-foreground max-w-xl mx-auto">
         Everything you need to get started — from installation to advanced programmatic usage.
       </p>
+      <div class="mt-5 flex justify-center opacity-0" data-animate style="--animation: fade-in-up 0.5s ease 0.05s">
+        <DocsSearchCta client:load />
+      </div>
     </div>
 
     <div
