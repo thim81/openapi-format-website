@@ -26,12 +26,12 @@ info:
   title: Pet Store API
   version: 1.0.0
 paths:
-  '/pets':
+  /pets:
     get:
       summary: List all pets
     post:
       summary: Create a pet
-  '/pets/{petId}':
+  /pets/{petId}:
     get:
       summary: Get pet by ID
 components:
