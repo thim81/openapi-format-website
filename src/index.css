@@ -157,7 +157,7 @@ pre[class*='language-'] {
 }
 
 code.language-bash .token.openapi-format-command {
-  color: #509f60;
+  color: rgb(51, 132, 81);
 }
 
 .token.openapi-method {
@@ -252,44 +252,44 @@ code.language-bash .token.openapi-format-command {
 /* OpenAPI-specific palette (only for language-openapi blocks) */
 code.language-openapi .token.key,
 code.language-openapi .token.atrule {
-  color: hsl(142 71% 45%);
+  color: #008000;
   font-weight: 400;
 }
 
 code.language-openapi .token.openapi-root-key {
-  color: hsl(142 71% 36%);
-  font-weight: 400;
+  color: rgb(51, 132, 81);
+  font-weight: 700;
 }
 
 code.language-openapi .token.path-key {
-  color: hsl(158 64% 34%);
+  color: rgb(51, 132, 81);
   font-weight: 400;
 }
 
 code.language-openapi .token.openapi-method {
-  color: hsl(173 80% 40%);
+  color: rgb(51, 132, 81);
   font-weight: 400;
 }
 
 .dark code.language-openapi .token.key,
 .dark code.language-openapi .token.atrule {
-  color: hsl(142 71% 45%);
+  color: #008000;
   font-weight: 400;
 }
 
 .dark code.language-openapi .token.openapi-root-key {
-  color: hsl(142 71% 36%);
-  font-weight: 400;
+  color: rgb(51, 132, 81);
+  font-weight: 700;
 }
 
 .dark code.language-openapi .token.path-key {
-  color: hsl(158 64% 34%);
-  font-weight: 400;
+  color: rgb(51, 132, 81);
+  font-weight: 700;
 }
 
 .dark code.language-openapi .token.openapi-method {
-  color: hsl(173 80% 40%);
-  font-weight: 400;
+  color: rgb(51, 132, 81);
+  font-weight: 700;
 }
 
 /* Scroll-triggered animations */
