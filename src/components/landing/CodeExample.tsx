@@ -54,7 +54,7 @@ const HighlightedCode = ({ code }: { code: string }) => {
       ref={ref}
       className='rounded-lg border bg-card p-4 text-sm overflow-x-auto font-mono leading-relaxed'
     >
-      <code className='language-yaml'>{code}</code>
+      <code className='language-openapi'>{code}</code>
     </pre>
   );
 };

@@ -156,6 +156,25 @@ pre[class*='language-'] {
   color: hsl(340 70% 45%);
 }
 
+.token.openapi-method {
+  color: hsl(250 58% 45%);
+  font-weight: 600;
+}
+
+.token.openapi-root-key {
+  color: hsl(142 58% 36%);
+  font-weight: 700;
+}
+
+.token.path-key {
+  color: hsl(209 72% 42%);
+  font-weight: 600;
+}
+
+.token.openapi-ref-value {
+  color: hsl(206 76% 40%);
+}
+
 .token.important,
 .token.bold {
   font-weight: bold;
@@ -205,6 +224,52 @@ pre[class*='language-'] {
 .dark .token.function,
 .dark .token.class-name {
   color: hsl(340 70% 70%);
+}
+
+.dark .token.openapi-method {
+  color: hsl(253 82% 78%);
+  font-weight: 600;
+}
+
+.dark .token.openapi-root-key {
+  color: hsl(143 64% 68%);
+  font-weight: 700;
+}
+
+.dark .token.path-key {
+  color: hsl(198 93% 73%);
+  font-weight: 600;
+}
+
+.dark .token.openapi-ref-value {
+  color: hsl(197 87% 73%);
+}
+
+/* OpenAPI-specific palette (only for language-openapi blocks) */
+code.language-openapi .token.key,
+code.language-openapi .token.atrule {
+  color: hsl(142 52% 38%);
+}
+
+code.language-openapi .token.openapi-root-key {
+  color: hsl(142 58% 34%);
+}
+
+code.language-openapi .token.path-key {
+  color: hsl(209 72% 42%);
+}
+
+.dark code.language-openapi .token.key,
+.dark code.language-openapi .token.atrule {
+  color: hsl(146 56% 72%);
+}
+
+.dark code.language-openapi .token.openapi-root-key {
+  color: hsl(142 64% 68%);
+}
+
+.dark code.language-openapi .token.path-key {
+  color: hsl(198 93% 73%);
 }
 
 /* Scroll-triggered animations */
