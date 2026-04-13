@@ -26,6 +26,7 @@ import CodeBlock from '@/components/docs/CodeBlock';
   <div class="grid gap-4 md:grid-cols-2">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`openapi: 3.0.3
 info:
   title: Pet Store API
@@ -65,6 +66,7 @@ components:
     />
     <CodeBlock
       client:idle
+      language="openapi"
       code={`# openapi.yaml (root)
 openapi: 3.0.3
 info:
@@ -126,6 +128,7 @@ npx openapi-format openapi.json -o output.json --no-bundle`}
   <div class="grid gap-4 md:grid-cols-2">
     <CodeBlock
       client:idle
+      language="openapi"
       code={`# openapi.yaml
 openapi: 3.0.3
 info:
@@ -149,6 +152,7 @@ paths:
     />
     <CodeBlock
       client:idle
+      language="openapi"
       code={`openapi: 3.0.3
 info:
   title: API
