@@ -248,28 +248,44 @@ pre[class*='language-'] {
 /* OpenAPI-specific palette (only for language-openapi blocks) */
 code.language-openapi .token.key,
 code.language-openapi .token.atrule {
-  color: hsl(142 52% 38%);
+  color: hsl(142 71% 45%);
+  font-weight: 400;
 }
 
 code.language-openapi .token.openapi-root-key {
-  color: hsl(142 58% 34%);
+  color: hsl(142 71% 36%);
+  font-weight: 400;
 }
 
 code.language-openapi .token.path-key {
-  color: hsl(209 72% 42%);
+  color: hsl(158 64% 34%);
+  font-weight: 400;
+}
+
+code.language-openapi .token.openapi-method {
+  color: hsl(173 80% 40%);
+  font-weight: 400;
 }
 
 .dark code.language-openapi .token.key,
 .dark code.language-openapi .token.atrule {
-  color: hsl(146 56% 72%);
+  color: hsl(142 71% 45%);
+  font-weight: 400;
 }
 
 .dark code.language-openapi .token.openapi-root-key {
-  color: hsl(142 64% 68%);
+  color: hsl(142 71% 36%);
+  font-weight: 400;
 }
 
 .dark code.language-openapi .token.path-key {
-  color: hsl(198 93% 73%);
+  color: hsl(158 64% 34%);
+  font-weight: 400;
+}
+
+.dark code.language-openapi .token.openapi-method {
+  color: hsl(173 80% 40%);
+  font-weight: 400;
 }
 
 /* Scroll-triggered animations */
