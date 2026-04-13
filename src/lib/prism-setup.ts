@@ -11,6 +11,14 @@ if (fn && !Array.isArray(fn) && 'pattern' in fn && fn.pattern instanceof RegExp)
   fn.pattern = new RegExp(fn.pattern.source.replace('|npm|', '|npm|npx|'), fn.pattern.flags);
 }
 
+// Highlight the OpenAPI CLI executable after npx with its brand color.
+Prism.languages.insertBefore('bash', 'function', {
+  'openapi-format-command': {
+    pattern: /(?<=\bnpx[ \t]+)openapi-format(?=\s|$)/,
+    alias: ['function'],
+  },
+});
+
 // Define an OpenAPI language derived from YAML so OpenAPI-specific tokens
 // only apply to blocks explicitly marked as language-openapi.
 Prism.languages.openapi = Prism.languages.extend('yaml', {});

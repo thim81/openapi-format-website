@@ -156,6 +156,10 @@ pre[class*='language-'] {
   color: hsl(340 70% 45%);
 }
 
+code.language-bash .token.openapi-format-command {
+  color: #509f60;
+}
+
 .token.openapi-method {
   color: hsl(250 58% 45%);
   font-weight: 600;
