@@ -11,4 +11,13 @@ if (fn && !Array.isArray(fn) && 'pattern' in fn && fn.pattern instanceof RegExp)
   fn.pattern = new RegExp(fn.pattern.source.replace('|npm|', '|npm|npx|'), fn.pattern.flags);
 }
 
+// Extend YAML grammar so path keys like /pets/{petId}: use key colors.
+Prism.languages.insertBefore('yaml', 'key', {
+  'path-key': {
+    pattern: /((?:^|[\r\n])[ \t]*)\/[^\r\n:]+(?=\s*:)/,
+    lookbehind: true,
+    alias: ['key', 'atrule'],
+  },
+});
+
 export default Prism;
