@@ -1,6 +1,7 @@
 ---
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import CodeBlock from "@/components/docs/CodeBlock";
+import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro";
 ---
 
 <DocsLayout
@@ -285,6 +286,22 @@ componentsParametersPath: camelCase`}
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Example: operationId</h2>
   <CodeBlock client:idle code={`operationId: kebab-case`} title="casing.yaml" />
+  <PlaygroundExampleLink
+    input={`paths:
+  /pets:
+    get:
+      operationId: getPets
+  /pets/{petId}:
+    get:
+      operationId: getPetById
+    delete:
+      operationId: deletePet`}
+    config={{
+      casingSet: "operationId: kebab-case",
+      toggleCasing: true,
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -318,6 +335,30 @@ componentsParametersPath: camelCase`}
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Schema Properties</h2>
   <CodeBlock client:idle code={`properties: snake_case`} title="casing.yaml" />
+  <PlaygroundExampleLink
+    input={`components:
+  schemas:
+    UserModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        emailAddress:
+          type: string
+          example: john@doe.com
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: Doe`}
+    config={{
+      casingSet: "properties: snake_case",
+      toggleCasing: true,
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -370,6 +411,30 @@ componentsParametersPath: camelCase`}
     client:idle
     code={`componentsSchemas: PascalCase`}
     title="casing.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`paths:
+  /orders:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order-model'
+components:
+  schemas:
+    userModel:
+      type: object
+    order-model:
+      type: object
+    pet_model:
+      type: object`}
+    config={{
+      casingSet: "componentsSchemas: PascalCase",
+      toggleCasing: true,
+      outputLanguage: "yaml",
+    }}
   />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
@@ -424,6 +489,29 @@ components:
     code={`parametersPath: kebab-case
 parametersQuery: snake_case`}
     title="casing.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`paths:
+  /pet/{petId}:
+    get:
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+        - name: includeDetails
+          in: query
+          description: Include full details
+        - $ref: '#/components/parameters/LimitParam'
+components:
+  parameters:
+    LimitParam:
+      name: limitParam
+      in: query`}
+    config={{
+      casingSet: "parametersPath: kebab-case\nparametersQuery: snake_case",
+      toggleCasing: true,
+      outputLanguage: "yaml",
+    }}
   />
   <div class="mt-4">
     <CodeBlock

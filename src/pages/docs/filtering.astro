@@ -1,6 +1,7 @@
 ---
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import CodeBlock from "@/components/docs/CodeBlock";
+import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro";
 ---
 
 <DocsLayout
@@ -239,6 +240,21 @@ operationIds:
   - put`}
     title="filter.yaml"
   />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: Finds Pets by status
+    put:
+      summary: Update an existing pet
+    post:
+      summary: Add a new pet`}
+    config={{ filterSet: "methods:\n  - get\n  - put", outputLanguage: "yaml" }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -281,6 +297,28 @@ paths:
     code={`tags:
   - pet`}
     title="filter.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      tags:
+        - pet
+      summary: List all pets
+    post:
+      tags:
+        - pet
+      summary: Add a new pet
+  /users:
+    get:
+      tags:
+        - user
+      summary: List all users`}
+    config={{ filterSet: "tags:\n  - pet", outputLanguage: "yaml" }}
   />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
@@ -337,6 +375,24 @@ paths:
   - findPetsByStatus`}
     title="filter.yaml"
   />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      operationId: findPetsByStatus
+      summary: Finds Pets by status
+    post:
+      operationId: addPet
+      summary: Add a new pet`}
+    config={{
+      filterSet: "operationIds:\n  - findPetsByStatus",
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -391,6 +447,26 @@ paths:
   - "*::/pets/*"`}
     title="filter.yaml"
   />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: Finds Pets by status
+    put:
+      summary: Update an existing pet
+  /users:
+    get:
+      summary: List all users`}
+    config={{
+      filterSet:
+        'operations:\n  # Exact match\n  - "GET::/pets"\n  # All methods on a path\n  - "*::/pets"\n  # All sub-paths\n  - "GET::/pets/*"\n  # Full wildcard\n  - "*::/pets/*"',
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -441,6 +517,25 @@ paths:
   - x-internal`}
     title="filter.yaml"
   />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: List all pets
+  /internal/metrics:
+    get:
+      x-internal: true
+      summary: Get metrics
+  /internal/health:
+    get:
+      x-internal: true
+      summary: Health check`}
+    config={{ filterSet: "flags:\n  - x-internal", outputLanguage: "yaml" }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -489,6 +584,28 @@ paths:
   - x-version: 3.0`}
     title="filter.yaml"
   />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      x-version: 1.0
+      summary: List pets (v1)
+    post:
+      x-version: 2.0
+      summary: Add pet (v2)
+  /users:
+    get:
+      x-version: 3.0
+      summary: List users (v3)`}
+    config={{
+      filterSet: "flagValues:\n  - x-version: 1.0\n  - x-version: 3.0",
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -536,6 +653,26 @@ paths:
     code={`responseContent:
   - application/xml`}
     title="filter.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`paths:
+  /pet:
+    post:
+      summary: Add a new pet
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pet'`}
+    config={{
+      filterSet: "responseContent:\n  - application/xml",
+      outputLanguage: "yaml",
+    }}
   />
   <div class="mt-4">
     <CodeBlock
@@ -589,6 +726,30 @@ paths:
   - parameters
   - examples`}
     title="filter.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`paths:
+  /pets:
+    get:
+      summary: List all pets
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+components:
+  schemas:
+    Pet:
+      type: object
+    Error:
+      type: object
+    Category:
+      type: object`}
+    config={{
+      filterSet: "unusedComponents:\n  - schemas\n  - parameters\n  - examples",
+      outputLanguage: "yaml",
+    }}
   />
   <div class="mt-4">
     <CodeBlock
@@ -648,6 +809,19 @@ components:
   - x-beta`}
     title="filter.yaml"
   />
+  <PlaygroundExampleLink
+    input={`paths:
+  /pets:
+    get:
+      x-internal: true
+      x-beta: true
+      summary: Finds Pets
+      operationId: findPets`}
+    config={{
+      filterSet: "stripFlags:\n  - x-internal\n  - x-beta",
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -685,6 +859,22 @@ components:
   - searchFor: 'swagger.io'
     replaceWith: 'openapis.org'`}
     title="filter.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: Pets API
+  description: Manage your Pets
+paths:
+  /pets:
+    get:
+      summary: Find Pets by status
+      description: Returns Pets from swagger.io`}
+    config={{
+      filterSet:
+        "textReplace:\n  - searchFor: 'Pets'\n    replaceWith: 'Dogs'\n  - searchFor: 'swagger.io'\n    replaceWith: 'openapis.org'",
+      outputLanguage: "yaml",
+    }}
   />
   <div class="mt-4">
     <CodeBlock

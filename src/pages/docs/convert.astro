@@ -1,6 +1,7 @@
 ---
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import CodeBlock from "@/components/docs/CodeBlock";
+import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro";
 ---
 
 <DocsLayout
@@ -54,6 +55,37 @@ npx openapi-format openapi.yaml -o openapi-3.1.yaml --no-sort --convertTo "3.1"`
   />
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Example: 3.0 &rarr; 3.1</h2>
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: Pet Store API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: List pets
+      responses:
+        '200':
+          description: A list of pets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+components:
+  schemas:
+    Pet:
+      type: object
+      nullable: true
+      properties:
+        name:
+          type: string
+        tag:
+          type: string
+          nullable: true`}
+    config={{ convertVersion: "3.1", outputLanguage: "yaml" }}
+  />
   <div class="grid gap-4 md:grid-cols-2">
     <CodeBlock
       client:idle
@@ -126,6 +158,16 @@ components:
   </div>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Example: 3.0 &rarr; 3.2</h2>
+  <PlaygroundExampleLink
+    input={`{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Petstore API",
+    "version": "1.0.0"
+  }
+}`}
+    config={{ convertVersion: "3.2", outputLanguage: "json" }}
+  />
   <div class="grid gap-4 md:grid-cols-2">
     <CodeBlock
       client:idle

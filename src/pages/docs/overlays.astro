@@ -1,6 +1,7 @@
 ---
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import CodeBlock from "@/components/docs/CodeBlock";
+import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro";
 ---
 
 <DocsLayout
@@ -93,6 +94,30 @@ actions:
         description: "The official Pet Store API — production ready."`}
     title="overlay.yaml"
   />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: Pet Store API
+  version: 1.0.0
+  description: A sample API
+paths:
+  /pets:
+    get:
+      summary: List all pets`}
+    config={{
+      overlaySet: `overlay: 1.0.0
+info:
+  title: Update API info
+  version: 1.0.0
+actions:
+  - target: "$"
+    update:
+      info:
+        description: "The official Pet Store API — production ready."`,
+      toggleOverlay: true,
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -150,6 +175,39 @@ actions:
             type: integer`}
     title="overlay.yaml"
   />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: Pet Store API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: List all pets`}
+    config={{
+      overlaySet: `overlay: 1.0.0
+info:
+  title: Production overlay
+  version: 1.0.0
+actions:
+  - target: "$"
+    update:
+      servers:
+        - url: https://api.example.com/v1
+          description: Production server
+  - target: "$.paths['/pets'].get"
+    update:
+      summary: "List all pets (paginated)"
+      description: "Returns a paginated list of pets."
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer`,
+      toggleOverlay: true,
+      outputLanguage: "yaml",
+    }}
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -201,6 +259,33 @@ actions:
   - target: "$.paths['/pets'].get.x-internal"
     remove: true`}
     title="overlay.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      x-internal: true
+      summary: List all pets
+  /internal/debug:
+    get:
+      summary: Debug endpoint`}
+    config={{
+      overlaySet: `overlay: 1.0.0
+info:
+  title: Cleanup overlay
+  version: 1.0.0
+actions:
+  - target: "$.paths['/internal/debug']"
+    remove: true
+  - target: "$.paths['/pets'].get.x-internal"
+    remove: true`,
+      toggleOverlay: true,
+      outputLanguage: "yaml",
+    }}
   />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
