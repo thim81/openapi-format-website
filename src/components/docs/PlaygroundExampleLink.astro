@@ -1,0 +1,50 @@
+---
+import {
+  createPlaygroundShareUrl,
+  type PlaygroundConfig,
+} from "@/lib/playground";
+
+interface Props {
+  input: string;
+  config: PlaygroundConfig;
+  label?: string;
+  class?: string;
+}
+
+const {
+  input,
+  config,
+  label = "Open Example in Playground",
+  class: className = "",
+} = Astro.props as Props;
+
+const href = createPlaygroundShareUrl(input, config);
+
+const buttonClassName =
+  `inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 gap-1.5 ${className}`.trim();
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={buttonClassName}
+>
+  {label}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="h-3 w-3"
+  >
+    <path d="M15 3h6v6"></path>
+    <path d="M10 14 21 3"></path>
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+  </svg>
+</a>

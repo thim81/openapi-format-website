@@ -1,6 +1,7 @@
 ---
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import CodeBlock from "@/components/docs/CodeBlock";
+import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro";
 ---
 
 <DocsLayout
@@ -208,6 +209,29 @@ import CodeBlock from "@/components/docs/CodeBlock";
     <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">sortSet</code
     > to sort paths alphabetically:
   </p>
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.0
+info:
+  title: Pets API
+  version: 1.0.0
+paths:
+  /users:
+    get:
+      summary: List users
+  /auth:
+    post:
+      summary: Login
+  /pets:
+    get:
+      summary: List pets`}
+    config={{
+      sort: true,
+      sortSet: "sortPathsBy: path",
+      pathSort: "path",
+      defaultFieldSorting: true,
+      outputLanguage: "yaml",
+    }}
+  />
   <CodeBlock
     client:idle
     code={`{
