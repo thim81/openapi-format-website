@@ -1,9 +1,13 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Programmatic Usage" description="Use openapi-format as a Node.js module in your own scripts and tools." currentPath="/docs/programmatic">
+<DocsLayout
+  title="Programmatic Usage"
+  description="Use openapi-format as a Node.js module in your own scripts and tools."
+  currentPath="/docs/programmatic"
+>
   <h1 class="text-3xl font-bold mb-2">Programmatic Usage</h1>
   <p class="text-muted-foreground mb-8">
     Use openapi-format as a Node.js module in your own scripts and tools.
@@ -81,8 +85,8 @@ draft = (await openapiGenerate(draft, {
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">File Helpers</h2>
   <p class="mb-4 text-muted-foreground">
-    The module exports smart parsing and writing helpers with support for large numbers, YAML
-    comments, and remote loading:
+    The module exports smart parsing and writing helpers with support for large
+    numbers, YAML comments, and remote loading:
   </p>
   <CodeBlock
     client:idle
@@ -101,11 +105,17 @@ await writeFile('openapi.sorted.yaml', output, { format: 'yaml' });`}
     title="helpers.js"
   />
 
-  <div class="mt-6 rounded-lg border bg-muted/30 p-4 text-sm text-muted-foreground">
+  <div
+    class="mt-6 rounded-lg border bg-muted/30 p-4 text-sm text-muted-foreground"
+  >
     <p class="font-semibold text-foreground mb-1">Note</p>
     <p>
-      Both <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">sortSet</code> and{' '}
-      <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">sortComponentsSet</code>{' '}
+      Both <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+        >sortSet</code
+      > and{" "}
+      <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+        >sortComponentsSet</code
+      >{" "}
       are optional. When omitted, openapi-format automatically applies built-in defaults.
     </p>
   </div>

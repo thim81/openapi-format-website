@@ -1,7 +1,7 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import DocsHeader from '@/components/interactive/DocsHeader';
-import ThemeToggle from '@/components/ThemeToggle';
+import BaseLayout from "./BaseLayout.astro";
+import DocsHeader from "@/components/interactive/DocsHeader";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface Props {
   title: string;
@@ -13,38 +13,37 @@ const { title, description, currentPath } = Astro.props;
 
 const sections = [
   {
-    title: 'Getting Started',
+    title: "Getting Started",
     items: [
-      { label: 'Installation', href: '/docs/installation' },
-      { label: 'CLI Options', href: '/docs/cli-options' },
-      { label: 'Configuration File', href: '/docs/configuration' },
+      { label: "Installation", href: "/docs/installation" },
+      { label: "CLI Options", href: "/docs/cli-options" },
+      { label: "Configuration File", href: "/docs/configuration" },
     ],
   },
   {
-    title: 'Features',
+    title: "Features",
     items: [
-      { label: 'Sorting', href: '/docs/sorting' },
-      { label: 'Filtering', href: '/docs/filtering' },
-      { label: 'Formatting & Casing', href: '/docs/formatting' },
-      { label: 'Overlays', href: '/docs/overlays' },
-      { label: 'Generate', href: '/docs/generate' },
-      { label: 'Split & Bundle', href: '/docs/split-bundle' },
-      { label: 'Convert', href: '/docs/convert' },
-      { label: 'Rename', href: '/docs/rename' },
+      { label: "Sorting", href: "/docs/sorting" },
+      { label: "Filtering", href: "/docs/filtering" },
+      { label: "Formatting & Casing", href: "/docs/formatting" },
+      { label: "Overlays", href: "/docs/overlays" },
+      { label: "Generate", href: "/docs/generate" },
+      { label: "Split & Bundle", href: "/docs/split-bundle" },
+      { label: "Convert", href: "/docs/convert" },
+      { label: "Rename", href: "/docs/rename" },
     ],
   },
   {
-    title: 'Advanced',
-    items: [
-      { label: 'Programmatic Usage', href: '/docs/programmatic' },
-    ],
+    title: "Advanced",
+    items: [{ label: "Programmatic Usage", href: "/docs/programmatic" }],
   },
 ];
 
 const allPages = sections.flatMap((s) => s.items);
 const currentIndex = allPages.findIndex((p) => p.href === currentPath);
 const prev = currentIndex > 0 ? allPages[currentIndex - 1] : null;
-const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null;
+const next =
+  currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null;
 ---
 
 <BaseLayout title={`${title} | openapi-format docs`} description={description}>
@@ -53,68 +52,112 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
 
     <div class="container flex">
       <!-- Desktop sidebar -->
-      <aside class="hidden lg:block w-64 shrink-0 self-start sticky top-20 max-h-[calc(100vh-5rem)] border-r py-8 pr-6">
+      <aside
+        class="hidden lg:block w-64 shrink-0 self-start sticky top-20 max-h-[calc(100vh-5rem)] border-r py-8 pr-6"
+      >
         <div class="max-h-[calc(100vh-10rem)] overflow-y-auto pr-1">
           <nav class="space-y-6">
-            {sections.map((section) => (
+            {
+              sections.map((section) => (
+                <div>
+                  <h4 class="mb-2 text-sm font-semibold text-foreground">
+                    {section.title}
+                  </h4>
+                  <ul class="space-y-1">
+                    {section.items.map((item) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          class:list={[
+                            "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm transition-colors",
+                            currentPath === item.href
+                              ? "bg-accent text-accent-foreground font-medium"
+                              : "text-muted-foreground hover:text-foreground hover:bg-accent/50",
+                          ]}
+                        >
+                          <svg
+                            class="h-3 w-3 shrink-0"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="m9 18 6-6-6-6" />
+                          </svg>
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Mobile sidebar (hidden by default, toggled by DocsHeader) -->
+      <div
+        id="docs-sidebar-backdrop"
+        class="hidden fixed inset-0 z-[60] lg:hidden"
+      >
+        <div
+          class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+          onclick="document.getElementById('docs-sidebar-mobile').classList.add('hidden'); document.getElementById('docs-sidebar-backdrop').classList.add('hidden');"
+        >
+        </div>
+      </div>
+      <aside
+        id="docs-sidebar-mobile"
+        class="hidden fixed inset-y-0 left-0 z-[70] w-72 bg-background border-r p-6 pt-20 overflow-y-auto lg:hidden"
+      >
+        <nav class="space-y-6">
+          {
+            sections.map((section) => (
               <div>
-                <h4 class="mb-2 text-sm font-semibold text-foreground">{section.title}</h4>
+                <h4 class="mb-2 text-sm font-semibold text-foreground">
+                  {section.title}
+                </h4>
                 <ul class="space-y-1">
                   {section.items.map((item) => (
                     <li>
                       <a
                         href={item.href}
                         class:list={[
-                          'flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm transition-colors',
+                          "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm transition-colors",
                           currentPath === item.href
-                            ? 'bg-accent text-accent-foreground font-medium'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
+                            ? "bg-accent text-accent-foreground font-medium"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent/50",
                         ]}
                       >
-                        <svg class="h-3 w-3 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        <svg
+                          class="h-3 w-3 shrink-0"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m9 18 6-6-6-6" />
+                        </svg>
                         {item.label}
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
-            ))}
-          </nav>
-        </div>
-      </aside>
-
-      <!-- Mobile sidebar (hidden by default, toggled by DocsHeader) -->
-      <div id="docs-sidebar-backdrop" class="hidden fixed inset-0 z-[60] lg:hidden">
-        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="document.getElementById('docs-sidebar-mobile').classList.add('hidden'); document.getElementById('docs-sidebar-backdrop').classList.add('hidden');"></div>
-      </div>
-      <aside id="docs-sidebar-mobile" class="hidden fixed inset-y-0 left-0 z-[70] w-72 bg-background border-r p-6 pt-20 overflow-y-auto lg:hidden">
-        <nav class="space-y-6">
-          {sections.map((section) => (
-            <div>
-              <h4 class="mb-2 text-sm font-semibold text-foreground">{section.title}</h4>
-              <ul class="space-y-1">
-                {section.items.map((item) => (
-                  <li>
-                    <a
-                      href={item.href}
-                      class:list={[
-                        'flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm transition-colors',
-                        currentPath === item.href
-                          ? 'bg-accent text-accent-foreground font-medium'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
-                      ]}
-                    >
-                      <svg class="h-3 w-3 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))
+          }
         </nav>
         <div class="mt-6 border-t pt-4">
-          <div class="text-xs font-medium text-muted-foreground mb-2">Appearance</div>
+          <div class="text-xs font-medium text-muted-foreground mb-2">
+            Appearance
+          </div>
           <ThemeToggle client:load />
         </div>
       </aside>
@@ -126,38 +169,64 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
 
           <!-- Prev / Next navigation -->
           <nav class="mt-12 flex items-stretch gap-4 border-t pt-6">
-            {prev ? (
-              <a
-                href={prev.href}
-                class="group flex flex-1 flex-col items-start rounded-lg border p-4 transition-colors hover:bg-accent/50"
-              >
-                <span class="flex items-center gap-1 text-xs text-muted-foreground">
-                  <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                  Previous
-                </span>
-                <span class="mt-1 text-sm font-medium group-hover:text-foreground">
-                  {prev.label}
-                </span>
-              </a>
-            ) : (
-              <div class="flex-1" />
-            )}
-            {next ? (
-              <a
-                href={next.href}
-                class="group flex flex-1 flex-col items-end rounded-lg border p-4 transition-colors hover:bg-accent/50"
-              >
-                <span class="flex items-center gap-1 text-xs text-muted-foreground">
-                  Next
-                  <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                </span>
-                <span class="mt-1 text-sm font-medium group-hover:text-foreground">
-                  {next.label}
-                </span>
-              </a>
-            ) : (
-              <div class="flex-1" />
-            )}
+            {
+              prev ? (
+                <a
+                  href={prev.href}
+                  class="group flex flex-1 flex-col items-start rounded-lg border p-4 transition-colors hover:bg-accent/50"
+                >
+                  <span class="flex items-center gap-1 text-xs text-muted-foreground">
+                    <svg
+                      class="h-3 w-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m15 18-6-6 6-6" />
+                    </svg>
+                    Previous
+                  </span>
+                  <span class="mt-1 text-sm font-medium group-hover:text-foreground">
+                    {prev.label}
+                  </span>
+                </a>
+              ) : (
+                <div class="flex-1" />
+              )
+            }
+            {
+              next ? (
+                <a
+                  href={next.href}
+                  class="group flex flex-1 flex-col items-end rounded-lg border p-4 transition-colors hover:bg-accent/50"
+                >
+                  <span class="flex items-center gap-1 text-xs text-muted-foreground">
+                    Next
+                    <svg
+                      class="h-3 w-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </span>
+                  <span class="mt-1 text-sm font-medium group-hover:text-foreground">
+                    {next.label}
+                  </span>
+                </a>
+              ) : (
+                <div class="flex-1" />
+              )
+            }
           </nav>
         </article>
       </main>
@@ -167,11 +236,21 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
         id="docs-toc-wrap"
         class="hidden xl:block w-64 shrink-0 self-start sticky top-20 max-h-[calc(100vh-5rem)] border-l py-8 pl-6"
       >
-        <div id="docs-toc-scroll" class="max-h-[calc(100vh-10rem)] overflow-y-auto pr-1">
-          <h4 class="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+        <div
+          id="docs-toc-scroll"
+          class="max-h-[calc(100vh-10rem)] overflow-y-auto pr-1"
+        >
+          <h4
+            class="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground"
+          >
             On this page
           </h4>
-          <nav id="docs-toc" aria-label="Table of contents" class="scroll-smooth"></nav>
+          <nav
+            id="docs-toc"
+            aria-label="Table of contents"
+            class="scroll-smooth"
+          >
+          </nav>
         </div>
       </aside>
     </div>
@@ -179,15 +258,15 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
 
   <script is:inline>
     (() => {
-      const article = document.getElementById('docs-article');
-      const toc = document.getElementById('docs-toc');
-      const tocWrap = document.getElementById('docs-toc-wrap');
-      const tocScroll = document.getElementById('docs-toc-scroll');
+      const article = document.getElementById("docs-article");
+      const toc = document.getElementById("docs-toc");
+      const tocWrap = document.getElementById("docs-toc-wrap");
+      const tocScroll = document.getElementById("docs-toc-scroll");
       if (!article || !toc || !tocWrap) return;
 
-      const headings = Array.from(article.querySelectorAll('h2, h3'));
+      const headings = Array.from(article.querySelectorAll("h2, h3"));
       if (!headings.length) {
-        tocWrap.classList.add('hidden');
+        tocWrap.classList.add("hidden");
         return;
       }
 
@@ -196,48 +275,51 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
         const base = text
           .toLowerCase()
           .trim()
-          .replace(/[^\w\s-]/g, '')
-          .replace(/\s+/g, '-')
-          .replace(/-+/g, '-');
+          .replace(/[^\w\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-");
         const next = (slugCounts.get(base) || 0) + 1;
         slugCounts.set(base, next);
         return next === 1 ? base : `${base}-${next}`;
       };
 
-      const ul = document.createElement('ul');
-      ul.className = 'space-y-0.5';
+      const ul = document.createElement("ul");
+      ul.className = "space-y-0.5";
 
       const links = [];
       for (const heading of headings) {
         if (!(heading instanceof HTMLElement)) continue;
 
         if (!heading.id) {
-          heading.id = slugify(heading.textContent || '');
+          heading.id = slugify(heading.textContent || "");
         }
-        heading.classList.add('group', 'scroll-mt-24');
+        heading.classList.add("group", "scroll-mt-24");
 
-        if (!heading.querySelector('.docs-anchor-link')) {
-          const anchor = document.createElement('a');
+        if (!heading.querySelector(".docs-anchor-link")) {
+          const anchor = document.createElement("a");
           anchor.href = `#${heading.id}`;
           anchor.className =
-            'docs-anchor-link ml-2 inline-flex align-middle text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground';
-          anchor.setAttribute('aria-label', `Link to ${heading.textContent || 'section'}`);
+            "docs-anchor-link ml-2 inline-flex align-middle text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground";
+          anchor.setAttribute(
+            "aria-label",
+            `Link to ${heading.textContent || "section"}`,
+          );
           anchor.innerHTML =
             '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L12 5"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07L12 19"/></svg>';
           heading.append(anchor);
         }
 
         const level = heading.tagName.toLowerCase();
-        const li = document.createElement('li');
-        const a = document.createElement('a');
+        const li = document.createElement("li");
+        const a = document.createElement("a");
         a.href = `#${heading.id}`;
         a.dataset.target = heading.id;
         a.dataset.level = level;
-        a.textContent = heading.textContent || '';
+        a.textContent = heading.textContent || "";
         a.className =
-          level === 'h2'
-            ? 'block rounded px-2 py-1 text-[13px] font-medium leading-5 text-foreground/90 transition-colors hover:text-foreground hover:bg-accent/40'
-            : 'block rounded pl-6 pr-2 py-1 text-xs leading-5 text-muted-foreground transition-colors hover:text-foreground hover:bg-accent/30';
+          level === "h2"
+            ? "block rounded px-2 py-1 text-[13px] font-medium leading-5 text-foreground/90 transition-colors hover:text-foreground hover:bg-accent/40"
+            : "block rounded pl-6 pr-2 py-1 text-xs leading-5 text-muted-foreground transition-colors hover:text-foreground hover:bg-accent/30";
         li.append(a);
         ul.append(li);
         links.push(a);
@@ -251,12 +333,12 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
           const isActive = link.dataset.target === id;
           const level = link.dataset.level;
           if (isActive) activeLink = link;
-          link.classList.toggle('bg-accent/50', isActive);
-          link.classList.toggle('text-foreground', isActive);
-          link.classList.toggle('font-semibold', isActive && level === 'h2');
-          link.classList.toggle('font-medium', isActive && level === 'h3');
-          if (!isActive && level === 'h3') {
-            link.classList.add('text-muted-foreground');
+          link.classList.toggle("bg-accent/50", isActive);
+          link.classList.toggle("text-foreground", isActive);
+          link.classList.toggle("font-semibold", isActive && level === "h2");
+          link.classList.toggle("font-medium", isActive && level === "h3");
+          if (!isActive && level === "h3") {
+            link.classList.add("text-muted-foreground");
           }
         }
         if (activeLink) {
@@ -265,10 +347,14 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
             const linkTop = activeLink.offsetTop;
             const linkBottom = linkTop + activeLink.offsetHeight;
             const viewTop = tocScroll.scrollTop + padding;
-            const viewBottom = tocScroll.scrollTop + tocScroll.clientHeight - padding;
+            const viewBottom =
+              tocScroll.scrollTop + tocScroll.clientHeight - padding;
             if (linkTop < viewTop || linkBottom > viewBottom) {
-              const targetTop = Math.max(0, linkTop - tocScroll.clientHeight / 2);
-              tocScroll.scrollTo({ top: targetTop, behavior: 'smooth' });
+              const targetTop = Math.max(
+                0,
+                linkTop - tocScroll.clientHeight / 2,
+              );
+              tocScroll.scrollTo({ top: targetTop, behavior: "smooth" });
             }
           }
         }
@@ -281,7 +367,9 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
         (entries) => {
           const visible = entries
             .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+            .sort(
+              (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
+            );
           if (visible[0]?.target instanceof HTMLElement) {
             const nextId = visible[0].target.id;
             if (nextId && nextId !== activeId) {
@@ -290,7 +378,7 @@ const next = currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : n
             }
           }
         },
-        { rootMargin: '-80px 0px -70% 0px', threshold: [0, 1] }
+        { rootMargin: "-80px 0px -70% 0px", threshold: [0, 1] },
       );
 
       for (const heading of headings) {

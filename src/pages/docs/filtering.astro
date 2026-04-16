@@ -1,16 +1,41 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Filtering" description="Strip matching items from your OpenAPI document based on methods, tags, flags, and more." currentPath="/docs/filtering">
+<DocsLayout
+  title="Filtering"
+  description="Strip matching items from your OpenAPI document based on methods, tags, flags, and more."
+  currentPath="/docs/filtering"
+>
   <h1 class="text-3xl font-bold mb-2">Filtering</h1>
   <p class="text-muted-foreground mb-4">
-    Strip matching items from your OpenAPI document based on methods, tags, flags, and more.
+    Strip matching items from your OpenAPI document based on methods, tags,
+    flags, and more.
   </p>
-  <a href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
-    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+  <a
+    href="https://playground.openapi-format.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-block my-4"
+  >
+    <span
+      class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        ></path></svg
+      >
       Try filtering in the Playground
     </span>
   </a>
@@ -45,99 +70,156 @@ operationIds:
       </thead>
       <tbody class="text-muted-foreground">
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">methods</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >methods</td
+          >
           <td class="py-2 pr-4">Remove matching HTTP methods</td>
           <td class="py-2 font-mono text-xs">['get','post']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseMethods</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >inverseMethods</td
+          >
           <td class="py-2 pr-4">Keep only these methods</td>
           <td class="py-2 font-mono text-xs">['get','post']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">tags</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >tags</td
+          >
           <td class="py-2 pr-4">Remove matching tags</td>
           <td class="py-2 font-mono text-xs">['pet','user']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseTags</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >inverseTags</td
+          >
           <td class="py-2 pr-4">Keep only these tags</td>
           <td class="py-2 font-mono text-xs">['pet','user']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">operationIds</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >operationIds</td
+          >
           <td class="py-2 pr-4">Remove matching operation IDs</td>
           <td class="py-2 font-mono text-xs">['findPets','updatePet']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseOperationIds</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >inverseOperationIds</td
+          >
           <td class="py-2 pr-4">Keep only these operation IDs</td>
           <td class="py-2 font-mono text-xs">['findPets']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">operations</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >operations</td
+          >
           <td class="py-2 pr-4">Remove matching method::path combos</td>
           <td class="py-2 font-mono text-xs">['GET::/pets','PUT::/pets']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">flags</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >flags</td
+          >
           <td class="py-2 pr-4">Remove items with these custom flags</td>
           <td class="py-2 font-mono text-xs">['x-exclude','x-internal']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseFlags</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >inverseFlags</td
+          >
           <td class="py-2 pr-4">Keep only items with these flags</td>
           <td class="py-2 font-mono text-xs">['x-public']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">flagValues</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >flagValues</td
+          >
           <td class="py-2 pr-4">Remove items matching flag + value</td>
           <td class="py-2 font-mono text-xs">['x-version: 1.0']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseFlagValues</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >inverseFlagValues</td
+          >
           <td class="py-2 pr-4">Keep only matching flag + value</td>
           <td class="py-2 font-mono text-xs">['x-version: 2.0']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">responseContent</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >responseContent</td
+          >
           <td class="py-2 pr-4">Remove response content types</td>
           <td class="py-2 font-mono text-xs">['application/xml']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseResponseContent</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >inverseResponseContent</td
+          >
           <td class="py-2 pr-4">Keep only these response types</td>
           <td class="py-2 font-mono text-xs">['application/json']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">requestContent</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >requestContent</td
+          >
           <td class="py-2 pr-4">Remove request body content types</td>
           <td class="py-2 font-mono text-xs">['application/xml']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">inverseRequestContent</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >inverseRequestContent</td
+          >
           <td class="py-2 pr-4">Keep only these request types</td>
           <td class="py-2 font-mono text-xs">['application/json']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">unusedComponents</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >unusedComponents</td
+          >
           <td class="py-2 pr-4">Remove unreferenced components</td>
           <td class="py-2 font-mono text-xs">['schemas','examples']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">stripFlags</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >stripFlags</td
+          >
           <td class="py-2 pr-4">Strip flag properties (keep parent)</td>
           <td class="py-2 font-mono text-xs">['x-internal']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">preserveEmptyObjects</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >preserveEmptyObjects</td
+          >
           <td class="py-2 pr-4">Keep empty objects</td>
           <td class="py-2 font-mono text-xs">true or ['schema']</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">textReplace</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >textReplace</td
+          >
           <td class="py-2 pr-4">Search &amp; replace text values</td>
-          <td class="py-2 font-mono text-xs">[{'{searchFor, replaceWith}'}]</td>
+          <td class="py-2 font-mono text-xs">[{"{searchFor, replaceWith}"}]</td>
         </tr>
       </tbody>
     </table>
@@ -145,9 +227,10 @@ operationIds:
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Methods</h2>
   <p class="mb-4 text-muted-foreground">
-    Remove all operations matching specified HTTP methods. Use{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">inverseMethods</code> to
-    keep only specified methods.
+    Remove all operations matching specified HTTP methods. Use{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >inverseMethods</code
+    > to keep only specified methods.
   </p>
   <CodeBlock
     client:idle
@@ -243,8 +326,10 @@ paths:
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by operationIds</h2>
   <p class="mb-4 text-muted-foreground">
-    Remove specific operations by their{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">operationId</code>:
+    Remove specific operations by their{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >operationId</code
+    >:
   </p>
   <CodeBlock
     client:idle
@@ -288,9 +373,10 @@ paths:
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Operations</h2>
   <p class="mb-4 text-muted-foreground">
-    Target specific method + path combinations using the{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">METHOD::path</code> format.
-    Supports wildcards:
+    Target specific method + path combinations using the{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >METHOD::path</code
+    > format. Supports wildcards:
   </p>
   <CodeBlock
     client:idle
@@ -344,8 +430,10 @@ paths:
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Filter by Flags</h2>
   <p class="mb-4 text-muted-foreground">
-    Remove items that have a specific custom property (e.g.{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">x-internal</code>):
+    Remove items that have a specific custom property (e.g.{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >x-internal</code
+    >):
   </p>
   <CodeBlock
     client:idle
@@ -440,7 +528,9 @@ paths:
   </div>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Filter Response Content</h2>
-  <p class="mb-4 text-muted-foreground">Remove specific content types from responses:</p>
+  <p class="mb-4 text-muted-foreground">
+    Remove specific content types from responses:
+  </p>
   <CodeBlock
     client:idle
     code={`responseContent:
@@ -468,7 +558,7 @@ paths:
       title="Before"
     />
   </div>
-    <div class="mt-4">
+  <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"
@@ -489,8 +579,8 @@ paths:
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Remove Unused Components</h2>
   <p class="mb-4 text-muted-foreground">
-    Strip unreferenced items from the components section. Recursively removes nested unused
-    components (up to 10 levels).
+    Strip unreferenced items from the components section. Recursively removes
+    nested unused components (up to 10 levels).
   </p>
   <CodeBlock
     client:idle
@@ -500,7 +590,7 @@ paths:
   - examples`}
     title="filter.yaml"
   />
-    <div class="mt-4">
+  <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"
@@ -524,8 +614,8 @@ components:
       type: object`}
       title="Before"
     />
-    </div>
-    <div class="mt-4">
+  </div>
+  <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"
@@ -596,7 +686,7 @@ components:
     replaceWith: 'openapis.org'`}
     title="filter.yaml"
   />
-    <div class="mt-4">
+  <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"
@@ -611,8 +701,8 @@ paths:
       description: Returns Pets from swagger.io`}
       title="Before"
     />
-    </div>
-    <div class="mt-4">
+  </div>
+  <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"

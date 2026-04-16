@@ -5,13 +5,13 @@ interface Props {
 }
 
 const {
-  title = 'openapi-format | Format, Sort and Filter OpenAPI Definitions',
-  description = 'A CLI and library to sort, filter, and format OpenAPI specs, making them consistent, clean, and diff-friendly.',
+  title = "openapi-format | Format, Sort and Filter OpenAPI Definitions",
+  description = "A CLI and library to sort, filter, and format OpenAPI specs, making them consistent, clean, and diff-friendly.",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-import '../index.css';
+import "../index.css";
 ---
 
 <!doctype html>
@@ -41,14 +41,14 @@ import '../index.css';
       async
       defer
       data-domain="openapi-format-playground.vercel.app"
-      src="https://cdn.inspectr.dev/script.js"
-    ></script>
+      src="https://cdn.inspectr.dev/script.js"></script>
 
     <!-- Prevent FOUC: apply theme before render -->
     <script is:inline>
-      const theme = localStorage.getItem('theme') ??
-        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.classList.toggle('dark', theme === 'dark');
+      const theme =
+        localStorage.getItem("theme") ??
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.classList.toggle("dark", theme === "dark");
     </script>
   </head>
   <body class="bg-background text-foreground">

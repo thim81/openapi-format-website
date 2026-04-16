@@ -1,19 +1,24 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Split & Bundle" description="Split large specs into modular multi-file structures, or bundle references into a single document." currentPath="/docs/split-bundle">
+<DocsLayout
+  title="Split & Bundle"
+  description="Split large specs into modular multi-file structures, or bundle references into a single document."
+  currentPath="/docs/split-bundle"
+>
   <h1 class="text-3xl font-bold mb-2">Split &amp; Bundle</h1>
   <p class="text-muted-foreground mb-8">
-    Split large specs into modular multi-file structures, or bundle references into a single
-    document.
+    Split large specs into modular multi-file structures, or bundle references
+    into a single document.
   </p>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Splitting</h2>
   <p class="mb-4 text-muted-foreground">
-    The <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">--split</code> option
-    creates a modular file structure with{' '}
+    The <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >--split</code
+    > option creates a modular file structure with{" "}
     <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">$ref</code> references:
   </p>
   <CodeBlock
@@ -109,10 +114,13 @@ components:
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Bundling</h2>
   <p class="mb-4 text-muted-foreground">
-    By default, all <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">$ref</code>{' '}
-    references are resolved into a single file. Use{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">--no-bundle</code> to keep
-    references intact:
+    By default, all <code
+      class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">$ref</code
+    >{" "}
+    references are resolved into a single file. Use{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >--no-bundle</code
+    > to keep references intact:
   </p>
   <CodeBlock
     client:idle

@@ -1,12 +1,17 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Configuration File" description="Bundle all CLI options into a single config file for consistent, reproducible formatting." currentPath="/docs/configuration">
+<DocsLayout
+  title="Configuration File"
+  description="Bundle all CLI options into a single config file for consistent, reproducible formatting."
+  currentPath="/docs/configuration"
+>
   <h1 class="text-3xl font-bold mb-2">Configuration File</h1>
   <p class="text-muted-foreground mb-8">
-    Bundle all CLI options into a single config file for consistent, reproducible formatting.
+    Bundle all CLI options into a single config file for consistent,
+    reproducible formatting.
   </p>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Using --configFile</h2>
@@ -72,17 +77,23 @@ import CodeBlock from '@/components/docs/CodeBlock';
         </tr>
         <tr class="border-b">
           <td class="py-2 pr-4 font-mono text-xs text-foreground">casingSet</td>
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">casingFile</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">casingFile</td
+          >
           <td class="py-2">Casing conventions for elements</td>
         </tr>
         <tr class="border-b">
           <td class="py-2 pr-4 font-mono text-xs text-foreground">filterSet</td>
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">filterFile</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">filterFile</td
+          >
           <td class="py-2">Filter rules for stripping items</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">generateSet</td>
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">generateFile</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >generateSet</td
+          >
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >generateFile</td
+          >
           <td class="py-2">Auto-generation templates</td>
         </tr>
       </tbody>
@@ -94,8 +105,10 @@ import CodeBlock from '@/components/docs/CodeBlock';
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Using .openapiformatrc</h2>
   <p class="mb-4 text-muted-foreground">
-    openapi-format automatically loads a{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">.openapiformatrc</code>{' '}
+    openapi-format automatically loads a{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >.openapiformatrc</code
+    >{" "}
     file from the current directory. CLI options override these settings.
   </p>
   <CodeBlock

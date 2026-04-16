@@ -1,16 +1,40 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Convert" description="Upgrade your OpenAPI 3.0 document to OpenAPI 3.1 or 3.2." currentPath="/docs/convert">
+<DocsLayout
+  title="Convert"
+  description="Upgrade your OpenAPI 3.0 document to OpenAPI 3.1 or 3.2."
+  currentPath="/docs/convert"
+>
   <h1 class="text-3xl font-bold mb-2">Convert</h1>
   <p class="text-muted-foreground mb-4">
     Upgrade your OpenAPI 3.0 document to OpenAPI 3.1 or 3.2.
   </p>
-  <a href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
-    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+  <a
+    href="https://playground.openapi-format.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-block my-4"
+  >
+    <span
+      class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        ></path></svg
+      >
       Try converting in the Playground
     </span>
   </a>
@@ -130,25 +154,38 @@ components:
   <h2 class="text-2xl font-semibold mt-8 mb-4">What Changes</h2>
   <div class="space-y-3 text-muted-foreground text-sm">
     <p>
-      <strong class="text-foreground">3.0 &rarr; 3.1:</strong> Key transformations include:
+      <strong class="text-foreground">3.0 &rarr; 3.1:</strong> Key transformations
+      include:
     </p>
     <ul class="list-disc list-inside space-y-1 ml-4">
       <li>
-        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">nullable: true</code> &rarr;{' '}
-        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">type: [original, 'null']</code>
+        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+          >nullable: true</code
+        > &rarr;{" "}
+        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+          >type: [original, 'null']</code
+        >
       </li>
       <li>
-        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">exclusiveMinimum: true</code>{' '}
-        &rarr;{' '}
-        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">exclusiveMinimum: value</code>
+        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+          >exclusiveMinimum: true</code
+        >{" "}
+        &rarr;{" "}
+        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+          >exclusiveMinimum: value</code
+        >
       </li>
       <li>
-        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">example</code> &rarr;{' '}
-        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">examples</code> (array format)
+        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+          >example</code
+        > &rarr;{" "}
+        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+          >examples</code
+        > (array format)
       </li>
     </ul>
     <p class="mt-2">
-      Based on the{' '}
+      Based on the{" "}
       <a
         href="https://www.openapis.org/blog/2021/02/16/migrating-from-openapi-3-0-to-3-1-0"
         target="_blank"
@@ -159,8 +196,9 @@ components:
       </a>.
     </p>
     <p class="mt-2">
-      <strong class="text-foreground">3.x &rarr; 3.2:</strong> Prepares the document for features
-      like hierarchical tags, the QUERY HTTP method, and reusable media types introduced in the{' '}
+      <strong class="text-foreground">3.x &rarr; 3.2:</strong> Prepares the document
+      for features like hierarchical tags, the QUERY HTTP method, and reusable media
+      types introduced in the{" "}
       <a
         href="https://quobix.com/articles/openapi-3.2/"
         target="_blank"

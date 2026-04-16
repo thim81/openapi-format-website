@@ -1,16 +1,41 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Formatting & Casing" description="Enforce consistent casing across operationIds, properties, parameters, and component keys." currentPath="/docs/formatting">
+<DocsLayout
+  title="Formatting & Casing"
+  description="Enforce consistent casing across operationIds, properties, parameters, and component keys."
+  currentPath="/docs/formatting"
+>
   <h1 class="text-3xl font-bold mb-2">Formatting &amp; Casing</h1>
   <p class="text-muted-foreground mb-4">
-    Enforce consistent casing across operationIds, properties, parameters, and component keys.
+    Enforce consistent casing across operationIds, properties, parameters, and
+    component keys.
   </p>
-  <a href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
-    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+  <a
+    href="https://playground.openapi-format.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-block my-4"
+  >
+    <span
+      class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        ></path></svg
+      >
       Try formatting in the Playground
     </span>
   </a>
@@ -40,7 +65,8 @@ import CodeBlock from '@/components/docs/CodeBlock';
         </tr>
         <tr class="border-b">
           <td class="py-2 pr-4">PascalCase</td>
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">PascalCase</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground">PascalCase</td
+          >
           <td class="py-2 font-mono text-xs">OpenapiFormat</td>
         </tr>
         <tr class="border-b">
@@ -65,7 +91,9 @@ import CodeBlock from '@/components/docs/CodeBlock';
         </tr>
         <tr class="border-b">
           <td class="py-2 pr-4">CONSTANT_CASE</td>
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">constantCase</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >constantCase</td
+          >
           <td class="py-2 font-mono text-xs">OPENAPI_FORMAT</td>
         </tr>
         <tr class="border-b">
@@ -75,7 +103,9 @@ import CodeBlock from '@/components/docs/CodeBlock';
         </tr>
         <tr class="border-b">
           <td class="py-2 pr-4">Dot.notation</td>
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">dotNotation</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >dotNotation</td
+          >
           <td class="py-2 font-mono text-xs">openapi.format</td>
         </tr>
         <tr class="border-b">
@@ -85,7 +115,9 @@ import CodeBlock from '@/components/docs/CodeBlock';
         </tr>
         <tr class="border-b">
           <td class="py-2 pr-4">Capital Case</td>
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">capitalCase</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >capitalCase</td
+          >
           <td class="py-2 font-mono text-xs">Openapi Format</td>
         </tr>
         <tr class="border-b">
@@ -113,67 +145,115 @@ import CodeBlock from '@/components/docs/CodeBlock';
       </thead>
       <tbody class="text-muted-foreground">
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">operationId</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >operationId</td
+          >
           <td class="py-2">Operation IDs in the Operations Object</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">properties</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >properties</td
+          >
           <td class="py-2">Schema property keys (inline &amp; components)</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersQuery</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >parametersQuery</td
+          >
           <td class="py-2">Query parameter names</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersHeader</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >parametersHeader</td
+          >
           <td class="py-2">Header parameter names</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersPath</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >parametersPath</td
+          >
           <td class="py-2">Path parameter names</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">parametersCookie</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >parametersCookie</td
+          >
           <td class="py-2">Cookie parameter names</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsSchemas</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsSchemas</td
+          >
           <td class="py-2">Schema model keys &amp; $ref links</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsExamples</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsExamples</td
+          >
           <td class="py-2">Example model keys &amp; $ref links</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsHeaders</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsHeaders</td
+          >
           <td class="py-2">Header model keys &amp; $ref links</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsResponses</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsResponses</td
+          >
           <td class="py-2">Response model keys &amp; $ref links</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsRequestBodies</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsRequestBodies</td
+          >
           <td class="py-2">Request body model keys &amp; $ref links</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsSecuritySchemes</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsSecuritySchemes</td
+          >
           <td class="py-2">Security scheme keys &amp; $ref links</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersQuery</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsParametersQuery</td
+          >
           <td class="py-2">Query parameter component keys</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersHeader</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsParametersHeader</td
+          >
           <td class="py-2">Header parameter component keys</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersPath</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsParametersPath</td
+          >
           <td class="py-2">Path parameter component keys</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap">componentsParametersCookie</td>
+          <td
+            class="py-2 pr-4 font-mono text-xs text-foreground whitespace-nowrap"
+            >componentsParametersCookie</td
+          >
           <td class="py-2">Cookie parameter component keys</td>
         </tr>
       </tbody>
@@ -286,7 +366,11 @@ componentsParametersPath: camelCase`}
   </div>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Component Keys</h2>
-  <CodeBlock client:idle code={`componentsSchemas: PascalCase`} title="casing.yaml" />
+  <CodeBlock
+    client:idle
+    code={`componentsSchemas: PascalCase`}
+    title="casing.yaml"
+  />
   <div class="grid gap-4 md:grid-cols-2 mt-4">
     <CodeBlock
       client:idle
@@ -341,7 +425,7 @@ components:
 parametersQuery: snake_case`}
     title="casing.yaml"
   />
-    <div class="mt-4">
+  <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"
@@ -363,8 +447,8 @@ components:
       in: query`}
       title="Before"
     />
-    </div>
-    <div class="mt-4">
+  </div>
+  <div class="mt-4">
     <CodeBlock
       client:idle
       language="openapi"

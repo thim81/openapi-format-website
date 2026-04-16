@@ -1,12 +1,17 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Overlays" description="Apply structured update and remove actions to your OpenAPI document using the OpenAPI Overlay Specification." currentPath="/docs/overlays">
+<DocsLayout
+  title="Overlays"
+  description="Apply structured update and remove actions to your OpenAPI document using the OpenAPI Overlay Specification."
+  currentPath="/docs/overlays"
+>
   <h1 class="text-3xl font-bold mb-2">Overlays</h1>
   <p class="text-muted-foreground mb-8">
-    Apply structured update and remove actions to your OpenAPI document using the{' '}
+    Apply structured update and remove actions to your OpenAPI document using
+    the{" "}
     <a
       href="https://spec.openapis.org/overlay/v1.0.0.html"
       target="_blank"
@@ -16,9 +21,29 @@ import CodeBlock from '@/components/docs/CodeBlock';
       OpenAPI Overlay Specification
     </a>.
   </p>
-  <a href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
-    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+  <a
+    href="https://playground.openapi-format.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-block my-4"
+  >
+    <span
+      class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        ></path></svg
+      >
       Try overlays in the Playground
     </span>
   </a>
@@ -99,7 +124,9 @@ paths:
     />
   </div>
 
-  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Add Server &amp; Update Endpoint</h2>
+  <h2 class="text-2xl font-semibold mt-8 mb-4">
+    Example: Add Server &amp; Update Endpoint
+  </h2>
   <CodeBlock
     client:idle
     code={`overlay: 1.0.0
@@ -210,9 +237,9 @@ paths:
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">Using extends</h2>
   <p class="mb-4 text-muted-foreground">
-    The overlay can declare a base OpenAPI document with{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">extends</code>, making the
-    input file optional:
+    The overlay can declare a base OpenAPI document with{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">extends</code
+    >, making the input file optional:
   </p>
   <CodeBlock
     client:idle
@@ -235,14 +262,20 @@ npx openapi-format --overlayFile overlay.yaml -o openapi-updated.yaml`}
     title="Terminal"
   />
 
-  <div class="mt-6 rounded-lg border bg-muted/30 p-4 text-sm text-muted-foreground">
+  <div
+    class="mt-6 rounded-lg border bg-muted/30 p-4 text-sm text-muted-foreground"
+  >
     <p class="font-semibold text-foreground mb-1">Notes</p>
     <ul class="list-disc list-inside space-y-1">
       <li>
-        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">extends</code> supports
-        both local paths and remote HTTP(S) URLs
+        <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+          >extends</code
+        > supports both local paths and remote HTTP(S) URLs
       </li>
-      <li>Local relative paths are resolved relative to the overlay file's location</li>
+      <li>
+        Local relative paths are resolved relative to the overlay file's
+        location
+      </li>
     </ul>
   </div>
 </DocsLayout>

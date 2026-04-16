@@ -1,40 +1,48 @@
 ---
 const documentationLinks = [
-  { label: 'Installation', href: '/docs/installation' },
-  { label: 'CLI Options', href: '/docs/cli-options' },
-  { label: 'Configuration', href: '/docs/configuration' },
+  { label: "Installation", href: "/docs/installation" },
+  { label: "CLI Options", href: "/docs/cli-options" },
+  { label: "Configuration", href: "/docs/configuration" },
 ];
 
 const featureLinks = [
-  { label: 'Sorting', href: '/docs/sorting' },
-  { label: 'Filtering', href: '/docs/filtering' },
-  { label: 'Formatting', href: '/docs/formatting' },
-  { label: 'Overlays', href: '/docs/overlays' },
-  { label: 'Generate', href: '/docs/generate' },
-  { label: 'Split & Bundle', href: '/docs/split-bundle' },
-  { label: 'Convert', href: '/docs/convert' },
-  { label: 'Rename', href: '/docs/rename' },
+  { label: "Sorting", href: "/docs/sorting" },
+  { label: "Filtering", href: "/docs/filtering" },
+  { label: "Formatting", href: "/docs/formatting" },
+  { label: "Overlays", href: "/docs/overlays" },
+  { label: "Generate", href: "/docs/generate" },
+  { label: "Split & Bundle", href: "/docs/split-bundle" },
+  { label: "Convert", href: "/docs/convert" },
+  { label: "Rename", href: "/docs/rename" },
 ];
 
 const resourceLinks = [
-  { label: 'GitHub', href: 'https://github.com/thim81/openapi-format' },
-  { label: 'npm', href: 'https://www.npmjs.com/package/openapi-format' },
-  { label: 'Playground', href: 'https://playground.openapi-format.com' },
-  { label: 'Changelog', href: 'https://github.com/thim81/openapi-format/releases' },
-  { label: 'Issues', href: 'https://github.com/thim81/openapi-format/issues' },
+  { label: "GitHub", href: "https://github.com/thim81/openapi-format" },
+  { label: "npm", href: "https://www.npmjs.com/package/openapi-format" },
+  { label: "Playground", href: "https://playground.openapi-format.com" },
+  {
+    label: "Changelog",
+    href: "https://github.com/thim81/openapi-format/releases",
+  },
+  { label: "Issues", href: "https://github.com/thim81/openapi-format/issues" },
 ];
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t bg-muted/30 pt-14 pb-8 opacity-0" data-animate style="--animation: fade-in 0.5s ease">
+<footer
+  class="border-t bg-muted/30 pt-14 pb-8 opacity-0"
+  data-animate
+  style="--animation: fade-in 0.5s ease"
+>
   <div class="container max-w-6xl">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
       <!-- Brand -->
       <div class="col-span-1 sm:col-span-2 md:col-span-1">
         <span class="text-lg font-bold tracking-tight">openapi-format</span>
         <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
-          Format, sort, filter &amp; transform your OpenAPI specs. Keep your API definitions clean and consistent.
+          Format, sort, filter &amp; transform your OpenAPI specs. Keep your API
+          definitions clean and consistent.
         </p>
       </div>
 
@@ -44,25 +52,35 @@ const year = new Date().getFullYear();
           <div>
             <h4 class="text-sm font-semibold mb-3">Documentation</h4>
             <ul class="space-y-2">
-              {documentationLinks.map((d) => (
-                <li>
-                  <a href={d.href} class="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    {d.label}
-                  </a>
-                </li>
-              ))}
+              {
+                documentationLinks.map((d) => (
+                  <li>
+                    <a
+                      href={d.href}
+                      class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {d.label}
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
           <div>
             <h4 class="text-sm font-semibold mb-3">Features</h4>
             <ul class="space-y-2">
-              {featureLinks.map((d) => (
-                <li>
-                  <a href={d.href} class="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    {d.label}
-                  </a>
-                </li>
-              ))}
+              {
+                featureLinks.map((d) => (
+                  <li>
+                    <a
+                      href={d.href}
+                      class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {d.label}
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
@@ -72,36 +90,82 @@ const year = new Date().getFullYear();
       <div>
         <h4 class="text-sm font-semibold mb-3">Resources</h4>
         <ul class="space-y-2">
-          {resourceLinks.map((r) => (
-            <li>
-              <a
-                href={r.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
-              >
-                {r.label}
-                <svg class="h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-              </a>
-            </li>
-          ))}
+          {
+            resourceLinks.map((r) => (
+              <li>
+                <a
+                  href={r.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
+                >
+                  {r.label}
+                  <svg
+                    class="h-3 w-3 opacity-50"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <>
+                      <path d="M15 3h6v6" />
+                      <path d="M10 14 21 3" />
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    </>
+                  </svg>
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
 
     <!-- Bottom bar -->
-    <div class="border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground text-center md:text-left">
+    <div
+      class="border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground text-center md:text-left"
+    >
       <p class="leading-relaxed">
-        &copy; {year} openapi-format — Built by{' '}
-        <a href="https://trinixlabs.dev" target="_blank" rel="noopener noreferrer" class="underline hover:text-foreground">
+        &copy; {year} openapi-format — Built by{" "}
+        <a
+          href="https://trinixlabs.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-foreground"
+        >
           TrinixLabs
         </a>
       </p>
       <div class="flex items-center gap-4">
-        <a href="https://github.com/thim81/openapi-format" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
-          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        <a
+          href="https://github.com/thim81/openapi-format"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-foreground transition-colors"
+        >
+          <svg
+            class="h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+            ></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+          >
         </a>
-        <a href="https://www.npmjs.com/package/openapi-format" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
+        <a
+          href="https://www.npmjs.com/package/openapi-format"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-foreground transition-colors"
+        >
           npm
         </a>
       </div>

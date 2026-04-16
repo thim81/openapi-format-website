@@ -1,9 +1,13 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Installation" description="Get started with openapi-format in your project or globally." currentPath="/docs/installation">
+<DocsLayout
+  title="Installation"
+  description="Get started with openapi-format in your project or globally."
+  currentPath="/docs/installation"
+>
   <h1 class="text-3xl font-bold mb-2">Installation</h1>
   <p class="text-muted-foreground mb-8">
     Get started with openapi-format in your project or globally.
@@ -21,13 +25,15 @@ import CodeBlock from '@/components/docs/CodeBlock';
     Local Installation
   </h2>
   <p class="mb-4 text-muted-foreground">
-    Add openapi-format to your project's{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 text-sm font-mono">node_modules</code>:
+    Add openapi-format to your project's{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 text-sm font-mono"
+      >node_modules</code
+    >:
   </p>
   <CodeBlock client:idle code="npm install --save openapi-format" title="npm" />
   <CodeBlock client:idle code="yarn add openapi-format" title="yarn" />
   <p class="text-sm text-muted-foreground mb-4">
-    Then run with{' '}
+    Then run with{" "}
     <code class="rounded bg-muted px-1.5 py-0.5 font-mono">
       npx openapi-format your-openapi-file.yaml
     </code>

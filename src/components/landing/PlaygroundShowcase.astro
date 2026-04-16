@@ -1,91 +1,129 @@
 ---
-import PlaygroundCarousel from '@/components/ui/PlaygroundCarousel';
+import PlaygroundCarousel from "@/components/ui/PlaygroundCarousel";
 
 const slides = [
   {
-    src: '/screenshots/openapi-format-playground-code-view.png',
-    alt: 'The OpenAPI Format Playground showing code input and formatted code output side by side.',
-    title: 'Code in, formatted spec out',
+    src: "/screenshots/openapi-format-playground-code-view.png",
+    alt: "The OpenAPI Format Playground showing code input and formatted code output side by side.",
+    title: "Code in, formatted spec out",
     description:
-      'Compare your original document with the formatted output side by side while sort, filter, and overlay settings update the result immediately.',
+      "Compare your original document with the formatted output side by side while sort, filter, and overlay settings update the result immediately.",
   },
   {
-    src: '/screenshots/openapi-format-playground-preview-view.png',
-    alt: 'The OpenAPI Format Playground showing a rendered API preview next to the source document.',
-    title: 'Preview the rendered API docs',
+    src: "/screenshots/openapi-format-playground-preview-view.png",
+    alt: "The OpenAPI Format Playground showing a rendered API preview next to the source document.",
+    title: "Preview the rendered API docs",
     description:
-      'Switch the output pane from raw code to a docs preview to inspect operations, parameters, and responses without leaving the playground.',
+      "Switch the output pane from raw code to a docs preview to inspect operations, parameters, and responses without leaving the playground.",
   },
   {
-    src: '/screenshots/openapi-format-playground-ui-editor.png',
-    alt: 'The OpenAPI Format Playground showing the visual editor for an OpenAPI operation.',
-    title: 'Edit with a visual UI',
+    src: "/screenshots/openapi-format-playground-ui-editor.png",
+    alt: "The OpenAPI Format Playground showing the visual editor for an OpenAPI operation.",
+    title: "Edit with a visual UI",
     description:
-      'Move between code, UI editing, and preview modes depending on whether you want to inspect structure, tweak operations, or validate the result.',
+      "Move between code, UI editing, and preview modes depending on whether you want to inspect structure, tweak operations, or validate the result.",
   },
   {
-    src: '/screenshots/openapi-format-playground-filter-operation-ids.png',
-    alt: 'The OpenAPI Format Playground showing the filter options dialog with operation IDs selected.',
-    title: 'Filter the spec before publishing',
+    src: "/screenshots/openapi-format-playground-filter-operation-ids.png",
+    alt: "The OpenAPI Format Playground showing the filter options dialog with operation IDs selected.",
+    title: "Filter the spec before publishing",
     description:
-      'Use the filter dialog to narrow the document by operation IDs, methods, tags, and other dimensions before exporting a cleaner public version.',
+      "Use the filter dialog to narrow the document by operation IDs, methods, tags, and other dimensions before exporting a cleaner public version.",
   },
   {
-    src: '/screenshots/openapi-format-playground-overlay-actions.png',
-    alt: 'The OpenAPI Format Playground showing overlay actions configured for an OpenAPI document.',
-    title: 'Manage overlay actions visually',
+    src: "/screenshots/openapi-format-playground-overlay-actions.png",
+    alt: "The OpenAPI Format Playground showing overlay actions configured for an OpenAPI document.",
+    title: "Manage overlay actions visually",
     description:
-      'Build and inspect overlay actions in a structured UI so targeted updates are easier to review than hand-editing larger documents.',
+      "Build and inspect overlay actions in a structured UI so targeted updates are easier to review than hand-editing larger documents.",
   },
   {
-    src: '/screenshots/openapi-format-playground-diff-view.png',
-    alt: 'The OpenAPI Format Playground showing a diff view between the original and updated OpenAPI document.',
-    title: 'Review every change in diff view',
+    src: "/screenshots/openapi-format-playground-diff-view.png",
+    alt: "The OpenAPI Format Playground showing a diff view between the original and updated OpenAPI document.",
+    title: "Review every change in diff view",
     description:
-      'Open a focused before-and-after diff to verify exactly what changed before you copy the output back into your project.',
+      "Open a focused before-and-after diff to verify exactly what changed before you copy the output back into your project.",
   },
 ];
 ---
 
 <section id="playground" class="border-t py-20 md:py-28">
   <div class="container max-w-6xl">
-    <div class="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start md:gap-12">
+    <div
+      class="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start md:gap-12"
+    >
       <div
         class="mx-auto min-w-0 w-full max-w-[320px] opacity-0 md:mx-0 md:max-w-xl"
         data-animate
         style="--animation: fade-in-left 0.6s ease"
       >
-        <div class="mb-4 inline-flex items-center gap-2 rounded-full border bg-muted/50 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+        <div
+          class="mb-4 inline-flex items-center gap-2 rounded-full border bg-muted/50 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground"
+        >
           Online Playground
         </div>
         <h2 class="text-3xl font-bold tracking-tight text-balance md:text-4xl">
           Explore openapi-format in the browser
         </h2>
-        <p class="mt-4 text-base leading-7 text-balance text-muted-foreground md:text-lg">
-          The online playground lets you format, filter, sort, compare, and preview OpenAPI
-          documents without installing anything locally.
+        <p
+          class="mt-4 text-base leading-7 text-balance text-muted-foreground md:text-lg"
+        >
+          The online playground lets you format, filter, sort, compare, and
+          preview OpenAPI documents without installing anything locally.
         </p>
         <p class="mt-4 text-base leading-7 text-balance text-muted-foreground">
-            Test config ideas, validate overlays, preview changes to your OpenAPI spec, and share the final result.
+          Test config ideas, validate overlays, preview changes to your OpenAPI
+          spec, and share the final result.
         </p>
 
-        <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:items-start">
-          <a class="w-full sm:w-auto" href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer">
-            <button class="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 bg-primary text-primary-foreground transition-colors hover:bg-primary/90 sm:w-auto sm:px-8">
+        <div
+          class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:items-start"
+        >
+          <a
+            class="w-full sm:w-auto"
+            href="https://playground.openapi-format.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button
+              class="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 bg-primary text-primary-foreground transition-colors hover:bg-primary/90 sm:w-auto sm:px-8"
+            >
               Open Playground
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path></svg
+              >
             </button>
           </a>
           <a class="w-full sm:w-auto" href="/docs/installation">
-            <button class="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 border border-input bg-background transition-colors hover:bg-accent hover:text-accent-foreground sm:w-auto sm:px-8">
+            <button
+              class="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 border border-input bg-background transition-colors hover:bg-accent hover:text-accent-foreground sm:w-auto sm:px-8"
+            >
               Read the Docs
             </button>
           </a>
         </div>
       </div>
 
-      <div class="opacity-0" data-animate style="--animation: fade-in-right 0.6s ease 0.1s">
-        <PlaygroundCarousel client:visible slides={slides} className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0" />
+      <div
+        class="opacity-0"
+        data-animate
+        style="--animation: fade-in-right 0.6s ease 0.1s"
+      >
+        <PlaygroundCarousel
+          client:visible
+          slides={slides}
+          className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0"
+        />
       </div>
     </div>
   </div>

@@ -1,17 +1,41 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Rename" description="Change the title of your OpenAPI document." currentPath="/docs/rename">
+<DocsLayout
+  title="Rename"
+  description="Change the title of your OpenAPI document."
+  currentPath="/docs/rename"
+>
   <h1 class="text-3xl font-bold mb-2">Rename</h1>
   <p class="text-muted-foreground mb-4">
-    Change the title of your OpenAPI document — useful in CI/CD pipelines to create distinct
-    output variants.
+    Change the title of your OpenAPI document — useful in CI/CD pipelines to
+    create distinct output variants.
   </p>
-  <a href="https://playground.openapi-format.com" target="_blank" rel="noopener noreferrer" class="inline-block my-4">
-    <span class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+  <a
+    href="https://playground.openapi-format.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-block my-4"
+  >
+    <span
+      class="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-background px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        ></path></svg
+      >
       Try renaming in the Playground
     </span>
   </a>

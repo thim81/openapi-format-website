@@ -1,14 +1,19 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import CodeBlock from '@/components/docs/CodeBlock';
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
 ---
 
-<DocsLayout title="Generate" description="Automatically generate OpenAPI elements like operationId using customizable templates." currentPath="/docs/generate">
+<DocsLayout
+  title="Generate"
+  description="Automatically generate OpenAPI elements like operationId using customizable templates."
+  currentPath="/docs/generate"
+>
   <h1 class="text-3xl font-bold mb-2">Generate</h1>
   <p class="text-muted-foreground mb-8">
-    Automatically generate OpenAPI elements like{' '}
-    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">operationId</code> using
-    customizable templates.
+    Automatically generate OpenAPI elements like{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >operationId</code
+    > using customizable templates.
   </p>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4">CLI Usage</h2>
@@ -36,12 +41,20 @@ overwriteExisting: false`}
       </thead>
       <tbody class="text-muted-foreground">
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">operationIdTemplate</td>
-          <td class="py-2">Template with dynamic placeholders for generating operationId</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >operationIdTemplate</td
+          >
+          <td class="py-2"
+            >Template with dynamic placeholders for generating operationId</td
+          >
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">overwriteExisting</td>
-          <td class="py-2">Whether to overwrite existing values (default: false)</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >overwriteExisting</td
+          >
+          <td class="py-2"
+            >Whether to overwrite existing values (default: false)</td
+          >
         </tr>
       </tbody>
     </table>
@@ -59,52 +72,72 @@ overwriteExisting: false`}
       </thead>
       <tbody class="text-muted-foreground">
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;operationId&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;operationId&gt;</td
+          >
           <td class="py-2 pr-4">Existing operationId</td>
           <td class="py-2 font-mono text-xs">leadsAll</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;method&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;method&gt;</td
+          >
           <td class="py-2 pr-4">HTTP method</td>
           <td class="py-2 font-mono text-xs">GET</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;path&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;path&gt;</td
+          >
           <td class="py-2 pr-4">Full path</td>
           <td class="py-2 font-mono text-xs">/crm/leads</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;pathRef&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;pathRef&gt;</td
+          >
           <td class="py-2 pr-4">Method::path combination</td>
           <td class="py-2 font-mono text-xs">GET::/crm/leads</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;tag&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;tag&gt;</td
+          >
           <td class="py-2 pr-4">First tag name</td>
           <td class="py-2 font-mono text-xs">Leads</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;tag1&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;tag1&gt;</td
+          >
           <td class="py-2 pr-4">First tag</td>
           <td class="py-2 font-mono text-xs">Leads</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;tag2&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;tag2&gt;</td
+          >
           <td class="py-2 pr-4">Second tag</td>
           <td class="py-2 font-mono text-xs">CRM</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;pathPart1&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;pathPart1&gt;</td
+          >
           <td class="py-2 pr-4">First path segment</td>
           <td class="py-2 font-mono text-xs">crm</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;pathPart2&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;pathPart2&gt;</td
+          >
           <td class="py-2 pr-4">Second path segment</td>
           <td class="py-2 font-mono text-xs">leads</td>
         </tr>
         <tr class="border-b">
-          <td class="py-2 pr-4 font-mono text-xs text-foreground">&lt;pathPartN&gt;</td>
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >&lt;pathPartN&gt;</td
+          >
           <td class="py-2 pr-4">Nth path segment</td>
           <td class="py-2 font-mono text-xs">...</td>
         </tr>
@@ -112,7 +145,9 @@ overwriteExisting: false`}
     </table>
   </div>
 
-  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Generate Missing operationIds</h2>
+  <h2 class="text-2xl font-semibold mt-8 mb-4">
+    Example: Generate Missing operationIds
+  </h2>
   <CodeBlock
     client:idle
     code={`operationIdTemplate: "<method>_<pathPart1>_<pathPart2>"
@@ -161,7 +196,9 @@ paths:
     />
   </div>
 
-  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Overwrite All operationIds</h2>
+  <h2 class="text-2xl font-semibold mt-8 mb-4">
+    Example: Overwrite All operationIds
+  </h2>
   <CodeBlock
     client:idle
     code={`operationIdTemplate: "<method>-<pathPart1>-<pathPart2>"
@@ -207,20 +244,28 @@ paths:
     />
   </div>
 
-  <h2 class="text-2xl font-semibold mt-8 mb-4">Advanced Template with Static Text</h2>
+  <h2 class="text-2xl font-semibold mt-8 mb-4">
+    Advanced Template with Static Text
+  </h2>
   <CodeBlock
     client:idle
     code={`operationIdTemplate: "Api_<method>_<pathPart2>_Handler"`}
     title="customGenerate.yaml"
   />
   <p class="text-sm text-muted-foreground mt-2">
-    For <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">GET /crm/leads</code>,
-    this generates:{' '}
-    <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">Api_GET_leads_Handler</code>
+    For <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+      >GET /crm/leads</code
+    >, this generates:{" "}
+    <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+      >Api_GET_leads_Handler</code
+    >
   </p>
   <p class="text-sm text-muted-foreground mt-1">
-    For <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">POST /store/orders</code>,
-    this generates:{' '}
-    <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">Api_POST_orders_Handler</code>
+    For <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+      >POST /store/orders</code
+    >, this generates:{" "}
+    <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"
+      >Api_POST_orders_Handler</code
+    >
   </p>
 </DocsLayout>
