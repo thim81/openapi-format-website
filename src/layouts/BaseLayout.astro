@@ -10,8 +10,30 @@ const {
 } = Astro.props;
 
 const canonicalPathname =
-  Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/?$/, '/');
+  Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/?$/, "/");
 const canonicalURL = new URL(canonicalPathname, Astro.site);
+const siteURL = new URL("/", Astro.site).toString();
+const seoSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "openapi-format",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Any",
+    url: siteURL,
+    description,
+    author: {
+      "@type": "Person",
+      name: "thim81",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "openapi-format",
+    url: siteURL,
+  },
+];
 
 import "../index.css";
 ---
@@ -38,6 +60,7 @@ import "../index.css";
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/og.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(seoSchema)} />
 
     <script
       async

@@ -8,6 +8,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "lint": "eslint .",
+    "check:links": "node scripts/check-trailing-slashes.mjs",
+    "check:deadlinks": "node scripts/check-dead-links.mjs",
+    "check:sitemap": "node scripts/check-sitemap-status.mjs",
+    "check:all": "npm run check:links && npm run check:deadlinks",
+    "build:check": "npm run build && npm run check:all",
     "fmt": "oxfmt --write .",
     "fmt:astro": "npx prettier --write --plugin prettier-plugin-astro \"src/**/*.astro\"",
     "fmt:check": "oxfmt --check ."

@@ -108,7 +108,10 @@ const docPages: DocPage[] = [
       { label: 'CLI Usage', description: 'Run overlays from the CLI' },
       { label: 'Overlay Structure', description: 'How overlays are organized' },
       { label: 'Example: Update Description', description: 'Patch metadata in place' },
-      { label: 'Example: Add Server & Update Endpoint', description: 'Modify servers and operations' },
+      {
+        label: 'Example: Add Server & Update Endpoint',
+        description: 'Modify servers and operations',
+      },
       { label: 'Example: Remove Fields', description: 'Delete fields from a spec' },
       { label: 'Using extends', description: 'Layer multiple overlays together' },
     ],
@@ -124,6 +127,17 @@ const docPages: DocPage[] = [
       { label: 'Example: Generate Missing operationIds', description: 'Fill in missing IDs' },
       { label: 'Example: Overwrite All operationIds', description: 'Replace existing IDs' },
       { label: 'Advanced Template with Static Text', description: 'Mix literals and placeholders' },
+    ],
+  },
+  {
+    label: 'Online Playground',
+    href: '/docs/online-playground/',
+    description: 'Use the browser workspace to inspect and share changes',
+    sections: [
+      { label: 'Open the Playground', description: 'Launch the browser workspace from the CLI' },
+      { label: 'Code, UI, Preview, Diff', description: 'Move between editing and review modes' },
+      { label: 'Shareable URLs', description: 'Pass input and config through the playground link' },
+      { label: 'When to Use It', description: 'Choose the playground for interactive review and demos' },
     ],
   },
   {
