@@ -1,0 +1,135 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
+import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro";
+---
+
+<DocsLayout
+  title="Online Playground"
+  description="Use the browser-based playground to inspect, edit, compare, and share OpenAPI changes."
+  currentPath="/docs/online-playground/"
+>
+  <h1 class="text-3xl font-bold mb-2">Online Playground</h1>
+  <p class="text-muted-foreground mb-4">
+    The online playground is the browser-based workspace for exploring
+    openapi-format. It combines code editing, visual controls, previewing, and
+    diffing in one place.
+  </p>
+
+  <div class="grid gap-4 md:grid-cols-3 mb-8">
+    <div class="rounded-lg border bg-card p-4">
+      <h2 class="text-sm font-semibold mb-2">Edit in code or UI</h2>
+      <p class="text-sm text-muted-foreground">
+        Work directly in the OpenAPI source or switch into visual controls for
+        filters, sorting, casing, overlays, and generation.
+      </p>
+    </div>
+    <div class="rounded-lg border bg-card p-4">
+      <h2 class="text-sm font-semibold mb-2">Preview and diff</h2>
+      <p class="text-sm text-muted-foreground">
+        Compare original and formatted output side by side, then review changes
+        in a dedicated diff editor before sharing or copying.
+      </p>
+    </div>
+    <div class="rounded-lg border bg-card p-4">
+      <h2 class="text-sm font-semibold mb-2">Share the state</h2>
+      <p class="text-sm text-muted-foreground">
+        Encode the current input and config into a shareable URL so others can
+        open the same workspace.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Open the Playground</h2>
+  <p class="mb-4 text-muted-foreground">
+    The CLI exposes the playground through the{" "}
+    <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
+      >--playground</code
+    > flag. Use it to launch the browser workspace for the current document.
+  </p>
+  <CodeBlock
+    client:idle
+    code={`npx openapi-format openapi.yaml --playground`}
+    title="Terminal"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">What it can do</h2>
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Formatting controls</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Sort fields and paths with built-in or custom sort sets.</li>
+        <li>Filter by methods, tags, operation IDs, and flags.</li>
+        <li>
+          Apply casing rules to operation IDs, parameters, and properties.
+        </li>
+        <li>Generate operation IDs from templates.</li>
+        <li>Apply overlays and inspect overlay actions visually.</li>
+        <li>Convert between OpenAPI versions when the input supports it.</li>
+      </ul>
+    </div>
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Review and sharing tools</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>See the input and formatted output in parallel panels.</li>
+        <li>Open a preview view for the rendered API docs.</li>
+        <li>Open a diff editor to inspect exactly what changed.</li>
+        <li>Upload a file or import content from a URL.</li>
+        <li>Copy output or download the formatted result.</li>
+        <li>Generate a share URL for the current workspace state.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Modes worth knowing</h2>
+  <ul class="mb-6 list-disc space-y-2 pl-5 text-muted-foreground">
+    <li>
+      Code view for raw input and output, useful when you want full control.
+    </li>
+    <li>
+      UI controls for config-driven workflows like sort, filter, casing, and
+      overlays.
+    </li>
+    <li>
+      Preview mode when you want to inspect the rendered experience instead of
+      the raw spec.
+    </li>
+    <li>Diff mode when you need a focused before-and-after review.</li>
+  </ul>
+
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: Pet Store API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: List all pets`}
+    config={{
+      sort: true,
+      outputLanguage: "yaml",
+    }}
+    label="Open a sample spec in the Online Playground"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">When to use it</h2>
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Good fit</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Trying out formatting changes before applying them in a repo.</li>
+        <li>Demonstrating OpenAPI edits to teammates in a browser.</li>
+        <li>Sharing reproducible examples through a URL instead of a file.</li>
+      </ul>
+    </div>
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Prefer the CLI</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Batch processing files in CI or scripts.</li>
+        <li>Making repeatable changes across many specs.</li>
+        <li>Checking changes into version control as plain files.</li>
+      </ul>
+    </div>
+  </div>
+</DocsLayout>
