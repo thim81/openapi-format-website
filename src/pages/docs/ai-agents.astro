@@ -1,0 +1,197 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import CodeBlock from "@/components/docs/CodeBlock";
+import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro";
+---
+
+<DocsLayout
+  title="AI Agents"
+  description="Use openapi-format with AI agents through the openapi-format skill for grounded OpenAPI workflows."
+  currentPath="/docs/ai-agents/"
+>
+  <h1 class="text-3xl font-bold mb-2">AI Agents</h1>
+  <p class="text-muted-foreground mb-4">
+    Use openapi-format with AI agents when you want the model to help with
+    OpenAPI work, but still keep the actual transformation grounded in a real
+    CLI workflow. The skill gives the agent a stable command surface for
+    sorting, filtering, overlays, casing, generation, conversion, renaming,
+    splitting, and bundling.
+  </p>
+
+  <div class="grid gap-4 md:grid-cols-3 mb-8">
+    <div class="rounded-lg border bg-card p-4">
+      <h2 class="text-sm font-semibold mb-2">Consistent commands</h2>
+      <p class="text-sm text-muted-foreground">
+        Agents get a repeatable CLI vocabulary instead of inventing their own
+        OpenAPI editing rules.
+      </p>
+    </div>
+    <div class="rounded-lg border bg-card p-4">
+      <h2 class="text-sm font-semibold mb-2">Use context efficiently</h2>
+      <p class="text-sm text-muted-foreground">
+        The CLI does the heavy lifting more efficiently, so the agent does not
+        need to read and parse the full OpenAPI document itself. That keeps
+        context use and token burn lower for large specs.
+      </p>
+    </div>
+    <div class="rounded-lg border bg-card p-4">
+      <h2 class="text-sm font-semibold mb-2">Inspectable output</h2>
+      <p class="text-sm text-muted-foreground">
+        Ask the agent for the exact command, config file, and expected result
+        so you can review the change before applying it.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Install the Skill</h2>
+  <p class="mb-4 text-muted-foreground">
+    Install the skill once so the agent can use openapi-format as a shared
+    playbook for sorting, filtering, overlays, casing, generation, conversion,
+    renaming, splitting, and bundling.
+  </p>
+  <CodeBlock
+    client:idle
+    code={`npx skills add https://github.com/thim81/openapi-format --skill openapi-format`}
+    title="Terminal"
+  />
+  <p class="mt-4 text-sm text-muted-foreground">
+    The skill docs include command recipes, config patterns, and troubleshooting
+    notes. That is what keeps AI output aligned with the actual CLI behavior.
+  </p>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Prompting Pattern</h2>
+  <p class="mb-4 text-muted-foreground">
+    Ask the agent for the exact command and config file, not just the final
+    result. That makes the response reproducible and easier to review.
+  </p>
+  <CodeBlock
+    client:idle
+    code={`Use openapi-format on ./openapi.yaml to sort paths by tags, remove internal endpoints, and write the result to ./openapi-public.yaml. Show me the exact command and the filter config you used.`}
+    title="Prompt example"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">What the Skill Covers</h2>
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Transformation stages</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Generate operation IDs from templates.</li>
+        <li>Filter by methods, tags, flags, content, and unused components.</li>
+        <li>Apply OpenAPI Overlay files, including `extends`-based workflows.</li>
+        <li>Sort fields, path order, and selected component groups.</li>
+        <li>Apply casing to operation IDs, properties, parameters, and components.</li>
+        <li>Convert OpenAPI 3.0 or 3.1 documents to later versions.</li>
+        <li>Rename the API title, split output trees, or disable bundling.</li>
+      </ul>
+    </div>
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Agent-friendly outputs</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Exact CLI commands you can paste into a terminal.</li>
+        <li>Minimal config files instead of broad, generic snippets.</li>
+        <li>Clear warnings when a transformation has side effects.</li>
+        <li>Notes about processing order so the agent does not reorder stages.</li>
+        <li>Troubleshooting guidance for missing files, output, or overlay input.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">The CLI Pipeline</h2>
+  <p class="mb-4 text-muted-foreground">
+    The skill follows the actual processing order used by openapi-format. That
+    matters when you combine multiple actions in one request.
+  </p>
+  <CodeBlock
+    client:idle
+    code={`generate -> filter -> overlay -> sort -> casing -> convertTo -> rename -> write output`}
+    title="Processing order"
+  />
+  <p class="mt-4 text-sm text-muted-foreground">
+    If an agent suggests a different order, it is wrong. For example, overlays
+    run after filtering and before sort/casing/conversion.
+  </p>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">OpenAPI Overlay Workflows</h2>
+  <p class="mb-4 text-muted-foreground">
+    Overlays are one of the most useful cases for AI agents because the model
+    can draft the target actions while the skill keeps the format and execution
+    rules grounded.
+  </p>
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Good agent tasks</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Patch descriptions or titles across a spec.</li>
+        <li>Add or update server entries, tags, or operation metadata.</li>
+        <li>Use `extends` to layer overlay changes on top of a base document.</li>
+        <li>Inspect the action summary to see what was used or left unused.</li>
+      </ul>
+    </div>
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Review points</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Check the overlay JSONPath targets the agent selected.</li>
+        <li>Confirm the base input if the overlay uses `extends`.</li>
+        <li>Prefer a final file diff over trusting the agent's prose summary.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Example Agent Request</h2>
+  <CodeBlock
+    client:idle
+    code={`Use the openapi-format skill to:
+1. remove internal operations,
+2. apply an overlay that updates the API description,
+3. sort the output by tags,
+4. and write the result to ./dist/openapi.public.yaml.
+
+Show the exact command, the minimal config or overlay file, and explain the processing order.`}
+    title="Prompt"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Recommended Workflow</h2>
+  <ol class="mb-6 list-decimal space-y-2 pl-5 text-muted-foreground">
+    <li>Give the agent the input file and the desired transformation.</li>
+    <li>Ask for the command plus any config or overlay file content.</li>
+    <li>Review the proposed processing order and output path.</li>
+    <li>Run the command locally or in CI so the result is reproducible.</li>
+    <li>Inspect the output diff before accepting the change.</li>
+  </ol>
+
+  <PlaygroundExampleLink
+    input={`openapi: 3.0.3
+info:
+  title: Pet Store API
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      summary: List all pets`}
+    config={{
+      sort: true,
+      outputLanguage: "yaml",
+    }}
+    label="Open the playground from a sample OpenAPI file"
+  />
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">When It Helps Most</h2>
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Best fit</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Prompting an agent to clean up a spec before publishing.</li>
+        <li>Drafting overlay actions or filter config from natural language.</li>
+        <li>Turning a rough request into a concrete CLI invocation.</li>
+      </ul>
+    </div>
+    <div class="rounded-lg border bg-muted/30 p-4">
+      <h3 class="font-semibold mb-2">Less ideal</h3>
+      <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+        <li>Large batch changes that need deterministic CI execution only.</li>
+        <li>Situations where you already know the exact CLI flags.</li>
+        <li>One-off edits where the overhead of an agent is unnecessary.</li>
+      </ul>
+    </div>
+  </div>
+</DocsLayout>
