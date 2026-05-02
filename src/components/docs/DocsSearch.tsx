@@ -58,7 +58,7 @@ const docPages: DocPage[] = [
     href: '/docs/sorting/',
     description: 'Sort properties, paths & components',
     sections: [
-      { label: 'CLI Usage', description: 'Run sorting from the command line' },
+      { label: 'Sorting CLI Usage', description: 'Run sorting from the command line' },
       { label: 'Default Sort Fields', description: 'Built-in ordering rules' },
       { label: 'Custom Sort File', description: 'Provide your own sort order file' },
       { label: 'Sort Paths', description: 'Reorder paths consistently' },
@@ -71,7 +71,7 @@ const docPages: DocPage[] = [
     href: '/docs/filtering/',
     description: 'Filter, remove or keep operations & tags',
     sections: [
-      { label: 'CLI Usage', description: 'Run filtering from the command line' },
+      { label: 'Filtering CLI Usage', description: 'Run filtering from the command line' },
       { label: 'Filter Options Reference', description: 'All filter flags at a glance' },
       { label: 'Filter by Methods', description: 'Include or exclude HTTP methods' },
       { label: 'Filter by Tags', description: 'Match tagged operations' },
@@ -90,7 +90,7 @@ const docPages: DocPage[] = [
     href: '/docs/formatting/',
     description: 'camelCase, snake_case & naming conventions',
     sections: [
-      { label: 'CLI Usage', description: 'Run formatting from the CLI' },
+      { label: 'Formatting CLI Usage', description: 'Run formatting from the CLI' },
       { label: 'Casing Types', description: 'Supported casing styles' },
       { label: 'Configurable Elements', description: 'Which names can be rewritten' },
       { label: 'Full Configuration Example', description: 'Complete config file example' },
@@ -105,7 +105,7 @@ const docPages: DocPage[] = [
     href: '/docs/overlays/',
     description: 'Merge, extend & override with overlay files',
     sections: [
-      { label: 'CLI Usage', description: 'Run overlays from the CLI' },
+      { label: 'Overlay CLI Usage', description: 'Run overlays from the CLI' },
       { label: 'Overlay Structure', description: 'How overlays are organized' },
       { label: 'Example: Update Description', description: 'Patch metadata in place' },
       {
@@ -121,7 +121,7 @@ const docPages: DocPage[] = [
     href: '/docs/generate/',
     description: 'Generate output from OpenAPI specs',
     sections: [
-      { label: 'CLI Usage', description: 'Run generation from the CLI' },
+      { label: 'Generate CLI Usage', description: 'Run generation from the CLI' },
       { label: 'Configuration', description: 'Generation settings and inputs' },
       { label: 'Template Placeholders', description: 'Available template variables' },
       { label: 'Example: Generate Missing operationIds', description: 'Fill in missing IDs' },
@@ -165,7 +165,7 @@ const docPages: DocPage[] = [
     href: '/docs/convert/',
     description: 'Convert between Swagger/OpenAPI & YAML/JSON',
     sections: [
-      { label: 'CLI Usage', description: 'Run conversions from the CLI' },
+      { label: 'Convert CLI Usage', description: 'Run conversions from the CLI' },
       { label: 'Example: 3.0 → 3.1', description: 'Upgrade a 3.0 spec to 3.1' },
       { label: 'Example: 3.0 → 3.2', description: 'Upgrade a 3.0 spec to 3.2' },
       { label: 'What Changes', description: 'Fields that change during conversion' },
@@ -176,7 +176,7 @@ const docPages: DocPage[] = [
     href: '/docs/rename/',
     description: 'Rename titles, descriptions & operationIds',
     sections: [
-      { label: 'CLI Usage', description: 'Run renaming from the CLI' },
+      { label: 'Rename CLI Usage', description: 'Run renaming from the CLI' },
       { label: 'Example', description: 'Rename a spec in practice' },
     ],
   },
