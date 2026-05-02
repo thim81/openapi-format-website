@@ -19,6 +19,18 @@ type DocPage = {
   href: string;
   description: string;
   sections?: DocSection[];
+  keywords?: string[];
+};
+
+type DocEntry = {
+  key: string;
+  href: string;
+  label: string;
+  description: string;
+  value: string;
+  section: string | null;
+  pageLabel?: string;
+  keywords?: string[];
 };
 
 const docPages: DocPage[] = [
@@ -150,6 +162,7 @@ const docPages: DocPage[] = [
       { label: 'The CLI Pipeline', description: 'Understand the fixed stage order' },
       { label: 'OpenAPI Overlay Workflows', description: 'Use overlay actions and extends with confidence' },
     ],
+    keywords: ['agent', 'agents', 'skill', 'openapi skill', 'llm', 'claude', 'codex'],
   },
   {
     label: 'Split & Bundle',
@@ -223,13 +236,14 @@ const DocsSearch = ({ open, onOpenChange }: DocsSearchProps) => {
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-');
 
-  const docEntries = docPages.flatMap((page) => {
-    const pageEntry = {
+  const docEntries: DocEntry[] = docPages.flatMap((page) => {
+    const pageEntry: DocEntry = {
       key: page.href,
       href: page.href,
       label: page.label,
       description: page.description,
       value: `${page.label} ${page.description}`,
+      keywords: page.keywords,
       section: null as string | null,
     };
 
@@ -244,7 +258,7 @@ const DocsSearch = ({ open, onOpenChange }: DocsSearchProps) => {
           pageLabel: page.label,
           value: `${page.label} ${section.label} ${page.description}`,
           section: section.label,
-        };
+        } satisfies DocEntry;
       }) ?? [];
 
     return [pageEntry, ...sectionEntries];
@@ -260,6 +274,7 @@ const DocsSearch = ({ open, onOpenChange }: DocsSearchProps) => {
             <CommandItem
               key={entry.key}
               value={entry.value}
+              keywords={entry.keywords}
               onSelect={() => handleSelect(entry.href)}
               className='flex items-start gap-3 py-3 cursor-pointer'
             >
