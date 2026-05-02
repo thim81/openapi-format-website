@@ -41,7 +41,7 @@ const Header = () => {
             </a>
           ))}
           <a
-            href='/docs/installation'
+            href='/docs/installation/'
             className='px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
           >
             Docs
@@ -87,7 +87,7 @@ const Header = () => {
             </a>
           ))}
           <a
-            href='/docs/installation'
+            href='/docs/installation/'
             onClick={() => setOpen(false)}
             className='py-2 text-sm text-muted-foreground hover:text-foreground transition-colors'
           >

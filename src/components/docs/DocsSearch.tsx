@@ -24,7 +24,7 @@ type DocPage = {
 const docPages: DocPage[] = [
   {
     label: 'Installation',
-    href: '/docs/installation',
+    href: '/docs/installation/',
     description: 'NPX, local & global install setup',
     sections: [
       { label: 'NPX', description: 'Install and run with npx' },
@@ -34,7 +34,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'CLI Options',
-    href: '/docs/cli-options',
+    href: '/docs/cli-options/',
     description: 'Command-line flags, arguments & output',
     sections: [
       { label: 'Usage', description: 'Basic CLI invocation and syntax' },
@@ -43,7 +43,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Configuration File',
-    href: '/docs/configuration',
+    href: '/docs/configuration/',
     description: 'YAML/JSON config file reference',
     sections: [
       { label: 'Using --configFile', description: 'Pass a config file on the command line' },
@@ -55,7 +55,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Sorting',
-    href: '/docs/sorting',
+    href: '/docs/sorting/',
     description: 'Sort properties, paths & components',
     sections: [
       { label: 'CLI Usage', description: 'Run sorting from the command line' },
@@ -68,7 +68,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Filtering',
-    href: '/docs/filtering',
+    href: '/docs/filtering/',
     description: 'Filter, remove or keep operations & tags',
     sections: [
       { label: 'CLI Usage', description: 'Run filtering from the command line' },
@@ -87,7 +87,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Formatting & Casing',
-    href: '/docs/formatting',
+    href: '/docs/formatting/',
     description: 'camelCase, snake_case & naming conventions',
     sections: [
       { label: 'CLI Usage', description: 'Run formatting from the CLI' },
@@ -102,7 +102,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Overlays',
-    href: '/docs/overlays',
+    href: '/docs/overlays/',
     description: 'Merge, extend & override with overlay files',
     sections: [
       { label: 'CLI Usage', description: 'Run overlays from the CLI' },
@@ -115,7 +115,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Generate',
-    href: '/docs/generate',
+    href: '/docs/generate/',
     description: 'Generate output from OpenAPI specs',
     sections: [
       { label: 'CLI Usage', description: 'Run generation from the CLI' },
@@ -128,7 +128,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Split & Bundle',
-    href: '/docs/split-bundle',
+    href: '/docs/split-bundle/',
     description: 'Split into multi-file or bundle into one',
     sections: [
       { label: 'Splitting', description: 'Break one spec into multiple files' },
@@ -137,7 +137,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Convert',
-    href: '/docs/convert',
+    href: '/docs/convert/',
     description: 'Convert between Swagger/OpenAPI & YAML/JSON',
     sections: [
       { label: 'CLI Usage', description: 'Run conversions from the CLI' },
@@ -148,7 +148,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Rename',
-    href: '/docs/rename',
+    href: '/docs/rename/',
     description: 'Rename titles, descriptions & operationIds',
     sections: [
       { label: 'CLI Usage', description: 'Run renaming from the CLI' },
@@ -157,7 +157,7 @@ const docPages: DocPage[] = [
   },
   {
     label: 'Programmatic Usage',
-    href: '/docs/programmatic',
+    href: '/docs/programmatic/',
     description: 'JavaScript/TypeScript API & imports',
     sections: [
       { label: 'Sorting with Minimal Setup', description: 'Use the API with defaults' },
