@@ -141,6 +141,17 @@ const docPages: DocPage[] = [
     ],
   },
   {
+    label: 'AI Agents',
+    href: '/docs/ai-agents/',
+    description: 'Use the openapi-format skill with Claude, Codex, and other agents',
+    sections: [
+      { label: 'Install the Skill', description: 'Add the openapi-format skill to your agent setup' },
+      { label: 'Prompting Pattern', description: 'Ask for commands, config, and expected output' },
+      { label: 'The CLI Pipeline', description: 'Understand the fixed stage order' },
+      { label: 'OpenAPI Overlay Workflows', description: 'Use overlay actions and extends with confidence' },
+    ],
+  },
+  {
     label: 'Split & Bundle',
     href: '/docs/split-bundle/',
     description: 'Split into multi-file or bundle into one',
