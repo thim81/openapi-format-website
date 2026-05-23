@@ -135,7 +135,7 @@ import PlaygroundExampleLink from "@/components/docs/PlaygroundExampleLink.astro
     </table>
   </div>
 
-  <h2 class="text-2xl font-semibold mt-8 mb-4">Configurable Elements</h2>
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Casing Options</h2>
   <div class="overflow-x-auto mb-8">
     <table class="w-full text-sm border-collapse">
       <thead>
@@ -555,6 +555,310 @@ components:
   parameters:
     LimitParam:
       name: limit_param
+      in: query`}
+      title="After"
+    />
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">keepCharacter</h2>
+  <p class="text-muted-foreground mb-4">
+    Use <code class="font-mono text-xs text-foreground">*keepCharacter</code> to preserve
+    a character while casing is normalized. This is useful when you want the formatter
+    to keep a separator that is already part of your naming convention instead of
+    removing it during the conversion.
+  </p>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">KeepChars Options</h2>
+  <div class="overflow-x-auto mb-4">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b">
+          <th class="text-left py-2 pr-4 font-semibold">Key</th>
+          <th class="text-left py-2 font-semibold">Description</th>
+        </tr>
+      </thead>
+      <tbody class="text-muted-foreground">
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >operationIdKeepChars</td
+          >
+          <td class="py-2">Impacts `operationId` values in operations.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >propertiesKeepChars</td
+          >
+          <td class="py-2">Impacts schema property keys.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >parametersQueryKeepChars</td
+          >
+          <td class="py-2">Impacts query parameter names.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >parametersHeaderKeepChars</td
+          >
+          <td class="py-2">Impacts header parameter names.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >parametersPathKeepChars</td
+          >
+          <td class="py-2">Impacts path parameter names.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >parametersCookieKeepChars</td
+          >
+          <td class="py-2">Impacts cookie parameter names.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsSchemasKeepChars</td
+          >
+          <td class="py-2">Impacts `components.schemas` keys.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsExamplesKeepChars</td
+          >
+          <td class="py-2">Impacts `components.examples` keys.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsHeadersKeepChars</td
+          >
+          <td class="py-2">Impacts `components.headers` keys.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsResponsesKeepChars</td
+          >
+          <td class="py-2">Impacts `components.responses` keys.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsRequestBodiesKeepChars</td
+          >
+          <td class="py-2">Impacts `components.requestBodies` keys.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsSecuritySchemesKeepChars</td
+          >
+          <td class="py-2">Impacts `components.securitySchemes` keys.</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsParametersQueryKeepChars</td
+          >
+          <td class="py-2"
+            >Impacts reusable query parameter keys in <code
+              class="font-mono text-xs text-foreground"
+              >components.parameters</code
+            >.</td
+          >
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsParametersHeaderKeepChars</td
+          >
+          <td class="py-2"
+            >Impacts reusable header parameter keys in <code
+              class="font-mono text-xs text-foreground"
+              >components.parameters</code
+            >.</td
+          >
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsParametersPathKeepChars</td
+          >
+          <td class="py-2"
+            >Impacts reusable path parameter keys in <code
+              class="font-mono text-xs text-foreground"
+              >components.parameters</code
+            >.</td
+          >
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 pr-4 font-mono text-xs text-foreground"
+            >componentsParametersCookieKeepChars</td
+          >
+          <td class="py-2"
+            >Impacts reusable cookie parameter keys in <code
+              class="font-mono text-xs text-foreground"
+              >components.parameters</code
+            >.</td
+          >
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mb-6 text-sm text-muted-foreground">
+    Keep characters are merged with the default preserved characters that
+    openapi-format already keeps:
+    <code class="font-mono text-xs text-foreground">$</code> and
+    <code class="font-mono text-xs text-foreground">@</code>. To disable the
+    default preserved characters for direct <code
+      class="font-mono text-xs text-foreground">changeCase</code
+    >
+    usage, pass an empty array as the custom keep characters.
+  </p>
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Example: Keep Character</h2>
+  <p class="mb-4 text-muted-foreground">
+    The example below keeps dots in selected fields so you can preserve version
+    suffixes and nested names while still applying casing to the rest of the
+    identifier.
+  </p>
+  <CodeBlock
+    client:idle
+    code={`operationId: snake_case
+operationIdKeepChars:
+  - .
+
+properties: camelCase
+propertiesKeepChars:
+  - .
+
+parametersQuery: camelCase
+parametersQueryKeepChars:
+  - .
+
+parametersHeader: kebab-case
+parametersPath: snake_case
+
+componentsExamples: PascalCase
+
+componentsSchemas: PascalCase
+componentsSchemasKeepChars:
+  - .
+
+componentsHeaders: kebab-case
+componentsResponses: snake_case
+componentsRequestBodies: snake_case
+componentsSecuritySchemes: PascalCase
+
+componentsParametersQuery: snake_case
+componentsParametersQueryKeepChars:
+  - .
+componentsParametersHeader: kebab-case
+componentsParametersPath: camelCase`}
+    title="casing.yaml"
+  />
+  <PlaygroundExampleLink
+    input={`paths:
+  /users/{userId}:
+    get:
+      operationId: getUser.v1
+      parameters:
+        - name: cursor.created_at
+          in: query
+          description: Pagination cursor
+        - name: pageSize.v1
+          in: query
+          description: Page size hint
+components:
+  schemas:
+    Pet.v1:
+      type: object
+      properties:
+        account_id.v2:
+          type: string
+  parameters:
+    LimitPageParam:
+      name: pageSize.v1
+      in: query`}
+    config={{
+      casingSet: `operationId: snake_case
+operationIdKeepChars:
+  - .
+
+properties: camelCase
+propertiesKeepChars:
+  - .
+
+parametersQuery: camelCase
+parametersQueryKeepChars:
+  - .
+
+parametersHeader: kebab-case
+parametersPath: snake_case
+
+componentsExamples: PascalCase
+
+componentsSchemas: PascalCase
+componentsSchemasKeepChars:
+  - .
+
+componentsHeaders: kebab-case
+componentsResponses: snake_case
+componentsRequestBodies: snake_case
+componentsSecuritySchemes: PascalCase
+
+componentsParametersQuery: snake_case
+componentsParametersQueryKeepChars:
+  - .
+componentsParametersHeader: kebab-case
+componentsParametersPath: camelCase`,
+      toggleCasing: true,
+      outputLanguage: "yaml",
+    }}
+  />
+  <div class="grid gap-4 md:grid-cols-2 mt-4">
+    <CodeBlock
+      client:idle
+      language="openapi"
+      code={`paths:
+  /users/{userId}:
+    get:
+      operationId: getUser.v1
+      parameters:
+        - name: cursor.created_at
+          in: query
+          description: Pagination cursor
+        - name: pageSize.v1
+          in: query
+          description: Page size hint
+components:
+  schemas:
+    Pet.v1:
+      type: object
+      properties:
+        account_id.v2:
+          type: string
+  parameters:
+    LimitPageParam:
+      name: pageSize.v1
+      in: query`}
+      title="Before"
+    />
+    <CodeBlock
+      client:idle
+      language="openapi"
+      code={`paths:
+  /users/{userId}:
+    get:
+      operationId: get_user.v1
+      parameters:
+        - name: cursor.createdAt
+          in: query
+          description: Pagination cursor
+        - name: page_size.v1
+          in: query
+          description: Page size hint
+components:
+  schemas:
+    Pet.v1:
+      type: object
+      properties:
+        accountId.v2:
+          type: string
+  parameters:
+    LimitPageParam:
+      name: page_size.v1
       in: query`}
       title="After"
     />
